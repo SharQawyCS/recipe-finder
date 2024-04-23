@@ -1,14 +1,35 @@
-p{
-    padding-left: 25px;
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap");
+
+.about-area {
+  padding-top: 5%;
 }
 
-h2{
-    padding-left: 10px;
+.about-text {
+  padding-top: 0%;
 }
-h3{
-    padding-left: 25px;
+.about-text h1 {
+  color: black;
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+}
+.about-text p {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 18px;
+  color: black;
+  line-height: 1.6;
+}
+.about-text a {
+  background: firebrick;
+  color: bisque;
+  padding: 7px 15px;
+  display: inline-block;
+  margin-top: 20px;
 }
 
-.first{
-    padding-top: 15px;
+body {
+  background-image: url(/imgs/hp_img.jpg) !important;
+}
+.container {
+  width: 65%;
 }

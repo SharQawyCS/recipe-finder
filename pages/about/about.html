@@ -2,70 +2,89 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe-Finder|about</title>
-    <link rel="stylesheet" href="about.css" />
+    <title>About Us</title>
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="./about.css" />
   </head>
   <body>
-    <h2 class="first">About Recipe-Finder</h2>
-    <p class="no1">
-      Welcome to <b>Recipe-Finder</b>, your ultimate destination for culinary
-      inspiration and delicious recipes! <br />
-      Whether you're a seasoned chef or a kitchen novice, Recipe Finder is here
-      to make your cooking experience more enjoyable and hassle-freeyour.
-    </p>
+    <!-- Header{ -->
+    <header>
+      <img src="/imgs/logo.png" alt="" class="logo" />
+      <nav>
+        <ul class="navlinks">
+          <li class="items"><a href="/index.html">Home</a></li>
+          <li>
+            <a href="/pages/favorite/favorite.html"
+              ><button>Favorite</button></a
+            >
+          </li>
+          <li onclick="showSidebar()">
+            <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+          </li>
+        </ul>
+        <ul class="sidebar">
+          <li onclick="closeSidebar()">
+            <a href="#"><ion-icon name="close-outline"></ion-icon></a>
+          </li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Favorite</a></li>
+          <img src="/imgs/logo.png" alt="" />
+        </ul>
+      </nav>
+    </header>
+    <!-- }Header -->
 
-    <hr />
+    <div class="container" >
+      <div class="about-text">
+        <h1>About Us</h1>
+        <p>
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aspernatur
+          cum magni labore suscipit quod fugiat architecto quam a iste nulla
+          mollitia voluptas nobis odio voluptatibus soluta dolor, ad dolores, ea
+          numquam cumque! Distinctio ad hic nulla repellendus autem delectus
+          fuga expedita maiores ea cum reiciendis praesentium at, dolor officiis
+          porro.
+        </p>
+        <a target="_blank" href="https://github.com/SharQawyCS/recipe-finder"
+          >Learn More</a
+        >
+      </div>
+    </div>
 
-    <h2>Our Mission</h2>
-    <p class="no2">
-      At Recipe Finder, we 're passionate about bringing people together through
-      the joy of cooking.
-      <br />Our mission is to empower individuals to explore new flavors,
-      discover exciting recipes, and create memorable meals for themselves and
-      their loved ones.
-    </p>
-
-    <hr />
-
-    <h2>What We Offer?</h2>
-    <ul class="no3">
-      <li>
-        Convenience: With Recipe Finder, delicious meal ideas are just a click
-        away, saving you time and effort in meal planning.
-      </li>
-      <li>
-        Variety: Explore thousands of recipes Whether you're craving comfort
-        food, exploring global cuisines, or looking for healthy options, Recipe
-        Finder has something for everyone.
-      </li>
-      <li>
-        Inspiration: Break out of your cooking rut and discover exciting new
-        recipes to impress your family and friends.
-      </li>
-      <li>
-        Advanced Search Functionality: Find the perfect recipe by ingredient,
-        cuisine, cooking time, and more.
-      </li>
-      <li>
-        Cooking Tips and Techniques: Learn new cooking skills and techniques
-        with our helpful tips and tutorials.
-      </li>
-    </ul>
-
-    <hr />
-
-    <h2>Get Cooking with Recipe Finder</h2>
-    <p>
-      Start your culinary journey today with Recipe Finder! Whether you're
-      cooking for one,
-      <br />hosting a dinner party, or just looking for a quick weeknight meal,
-      we've got you covered.
-    </p>
-
-    <h3 style="color: #131310">
-      Thank you for choosing Recipe Finder. <b>Happy cooking!</b>
-    </h3>
+    <!-- Footer{ -->
+    <footer class="footer" style="height: 250px">
+      <div class="footer-left col-md-4 col-sm-6">
+        <p class="about">
+          <span> About the company</span> Ut congue augue non tellus bibendum,
+          in varius tellus condimentum. In scelerisque nibh tortor, sed rhoncus
+          odio condimentum in. Sed sed est ut sapien ultrices eleifend. Integer
+          tellus est, vehicula eu lectus tincidunt, ultricies feugiat leo.
+          Suspendisse tellus elit, pharetra in hendrerit ut, aliquam quis augue.
+          Nam ut nibh mollis, tristique ante sed, viverra massa.
+        </p>
+      </div>
+      <div class="footer-center col-md-4 col-sm-6">
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p>
+            <a href="mailto:23P0360@eng.asu.edu.eg"> 23P0360@eng.asu.edu.eg</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-right col-md-4 col-sm-6">
+        <h2>Recipe<span> Finder</span></h2>
+        <p class="menu">
+          <a href="/index.html"> Home</a> |
+          <a href="/pages/about/about.html"> About</a> |
+          <a href="mailto:23P0360@eng.asu.edu.eg"> Contact</a>
+        </p>
+        <p class="name">Recipe Finder &copy; 2024</p>
+      </div>
+    </footer>
+    <!-- }Footer -->
+    <script src="/main.js"></script>
     <script src="./about.js"></script>
   </body>
 </html>
