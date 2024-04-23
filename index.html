@@ -4,13 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe Finder</title>
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="./main.css" />
   </head>
-  <bo>
-    <div class="blur-background"></div>
-    <div class="search-container">
-      <input type="text" id="search-input" placeholder="Search..." />
-      <button onclick="performSearch()">Search</button>
+  <body>
+    <!-- Header{ -->
+    <header>
+      <img src="./imgs/Logo.png" alt="" class="logo" />
+      <nav>
+        <ul class="navlinks">
+          <li class="items"><a href="./index.html">Home</a></li>
+          <li>
+            <a href="#"><button>Favorite</button></a>
+          </li>
+          <li onclick="showSidebar()">
+            <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+          </li>
+        </ul>
+        <ul class="sidebar">
+          <li onclick="closeSidebar()">
+            <a href="#"><ion-icon name="close-outline"></ion-icon></a>
+          </li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Favorite</a></li>
+          <img src="./imgs/Logo.png" alt="" />
+        </ul>
+      </nav>
+    </header>
+    <!-- }Header -->
+    <!-- Search-bar{ -->
+    <div class="search-bar">
+      <div class="input-box">
+        <i class="uil uil-search"></i>
+        <input type="text" placeholder="Search here..." />
+        <button class="button">Search</button>
+      </div>
     </div>
+    <!-- }Search-bar -->
+
+    <div class="container"></div>
+
+    <script src="./main.js"></script>
   </body>
+  <!-- Icons -->
+  <script
+    type="module"
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script
+    nomodule
+    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </html>
