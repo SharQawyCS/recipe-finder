@@ -1,3 +1,10 @@
+//Check if user logged in or not, if not, redrict him to log-in page
+const medicalDataJSON = localStorage.getItem("medical-data");
+const medicalData = JSON.parse(medicalDataJSON);
+if (!medicalData) {
+  window.location.href = "./pages/log-in/log-in.html";
+}
+
 // Header
 function showSidebar() {
   const sidebar = document.querySelector(".sidebar");
@@ -117,3 +124,37 @@ document.addEventListener("click", (event) => {
     clickedElement.classList.toggle("full");
   }
 });
+
+// ! ! ! ! ! ! ! ! ! ! ! ! ! ! !   A.   P.   I.    ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
+
+// Set up variables
+const apiKey = "88000ac38f8ecc420d6524fbf50c91cd";
+const query = "chicken"; // Example query for chicken recipes
+
+// Construct the request URL
+// const requestUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=bf8d8944&app_key=${apiKey}`;
+const requestUrl = `https://api.edamam.com/api/recipes/v2/8d3e4b9299664a1ca8e6f5bdb8532300?type=public&app_id=bf8d8944&app_key=88000ac38f8ecc420d6524fbf50c91cd`;
+
+// Make a GET request to the Edamam API
+fetch(requestUrl)
+  .then((response) => {
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    return response.json();
+  })
+  .then((data) => {
+    // Handle the response data
+    console.log(data.hits[0]);
+    // console.log(data.hits[0].recipe);
+    // console.log(data.hits[0].recipe);
+    console.log(data.hits[0].recipe.mealType);
+    console.log(data.hits[0].recipe.ingredientLines); //Array
+    console.log(data.hits[0].recipe.dietLables);
+    console.log(data.hits[0].recipe.image);
+    console.log(data.hits[0].recipe.totalTime);
+    // Extract and use recipe data as needed
+  })
+  .catch((error) => {
+    console.error("There was a problem with the fetch operation:", error);
+  });

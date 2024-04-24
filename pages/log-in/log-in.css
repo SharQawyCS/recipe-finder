@@ -10,7 +10,7 @@
 }
 
 body {
-  background-color: #282a36;
+  background-image: url(/imgs/hp_img.jpg);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,6 +25,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 20px;
+  border-style: dashed;
+  border-color: firebrick;
   border-radius: 20px;
 }
 
@@ -56,8 +58,8 @@ body {
 
 .login_register a.login {
   border-radius: 15px;
-  background: linear-gradient(90deg, #003a74, #006ad5);
-  color: white;
+  background: linear-gradient(90deg, firebrick, rgb(240, 93, 93));
+  color: bisque;
 }
 
 .login_register a.register {
@@ -92,16 +94,22 @@ body {
 
 .login_btn {
   font-size: 20px;
-  color: white;
+  color: bisque;
   border-radius: 15px;
   border: none;
-  background-color: #003a74;
   width: 100%;
   padding: 10px;
   margin-top: 15px;
   margin-bottom: 15px;
-  background: linear-gradient(-90deg, #003a74, #006ad5);
+  background: linear-gradient(90deg, firebrick, rgb(240, 93, 93));
   box-shadow: 1px 5px 9px rgba(211, 211, 211, 0.9);
+  transition: all .5s, ease .3s;
+}
+.login_btn:hover {
+
+  /*!                                                                   ! */
+  cursor: pointer;
+  font-size: 25px;
 }
 
 .footer_card {
@@ -115,7 +123,7 @@ body {
 }
 
 .footer_card a {
-  color: #5881d0;
+  color: firebrick;
 }
 
 /* For Radio btn */
@@ -150,12 +158,12 @@ body {
   transition: all 250ms ease;
 }
 .radio input[type="radio"]:checked + .radio-label:before {
-  background-color: #3197ee;
+  background-color: firebrick;
   box-shadow: inset 0 0 0 4px #f4f4f4;
 }
 .radio input[type="radio"]:focus + .radio-label:before {
   outline: none;
-  border-color: #3197ee;
+  border-color: firebrick;
 }
 .radio input[type="radio"]:disabled + .radio-label:before {
   box-shadow: inset 0 0 0 4px #f4f4f4;

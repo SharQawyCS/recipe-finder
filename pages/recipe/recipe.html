@@ -1,122 +1,108 @@
-
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <title>BEEF STOCK RECIPE</title>
-
-    <p class="title"><strong> BEEF STOCK </strong> RECIPE</p>
-    <div>
-      <input type="button" class="B1" id="myab" value="Save " />
-    </div>
-    <div>
-      <input type="button" class="B2" id="myab" value="How ? " />
-    </div>
-    <div>
-      <input type="button" class="B3" id="myab" value="Home  " />
-    </div>
-
-    <style>
-      body {
-        background-color: rgb(217, 212, 185);
-      }
-      .img {
-        height: 550px;
-        width: 360px;
-        border-radius: 100px;
-        margin-left: 22px;
-      }
-      .title {
-        margin-left: 10px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 55px;
-        color: black;
-      }
-      .tit {
-        font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
-          sans-serif;
-        margin-left: 10px;
-        font-size: 45px;
-      }
-      .mmm {
-        font-size: 40px;
-        margin-left: 12px;
-      }
-      .B1 {
-        background-color: rgb(65, 3, 3);
-        color: antiquewhite;
-        cursor: pointer;
-        border-radius: 8px;
-        top: 300px;
-        left: 500px;
-        box-shadow: 5px 5px 5px rgb(2, 2, 3);
-        transition: 0.5s;
-        position: absolute;
-        width: 200px;
-        height: 55px;
-        font-size: 35px;
-      }
-
-      .B2 {
-        background-color: rgb(65, 3, 3);
-        color: antiquewhite;
-        cursor: pointer;
-        border-radius: 8px;
-        top: 300px;
-        left: 750px;
-        box-shadow: 5px 5px 5px rgb(2, 2, 3);
-        transition: 0.5s;
-        position: absolute;
-        width: 200px;
-        height: 55px;
-        font-size: 35px;
-      }
-      .B3 {
-        background-color: rgb(65, 3, 3);
-        color: antiquewhite;
-        cursor: pointer;
-        border-radius: 8px;
-        top: 300px;
-        left: 1000px;
-        box-shadow: 5px 5px 5px rgb(2, 2, 3);
-        transition: 0.5s;
-        position: absolute;
-        width: 200px;
-        height: 55px;
-        font-size: 35px;
-      }
-      .B1:active {
-        opacity: 0.5;
-      }
-      .B1:hover {
-        opacity: 0.7;
-      }
-      .B2:active {
-        opacity: 0.5;
-      }
-      .B2:hover {
-        opacity: 0.7;
-      }
-      .B3:active {
-        opacity: 0.5;
-      }
-      .B3:hover {
-        opacity: 0.7;
-      }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Page</title>
+    <link rel="stylesheet" href="./recipe.css" />
   </head>
-  <body style="height: 1200px; width: 600px">
-    <img class="img" src="img .jpg" />
-    <p class="tit">Ingredients:</p>
-    <p class="mmm">
-      1. Beef bones
-      <br />
-      2. Onions <br />
-      3. Carrots <br />
-      4. Celery <br />
-      5. Parsley <br />
-      6. Thyme <br />
-      7. Olive oil <br />
-      8. Water <br />
-      9. peppercorns and salt <br />
-      10. You can also add garlic and bay leaves for flavor
-    </p>
+  <body>
+    <!-- Header{ -->
+    <header>
+      <img src="/imgs/logo.png" alt="" class="logo" />
+      <nav>
+        <ul class="navlinks">
+          <li class="items"><a href="/index.html">Home</a></li>
+          <li>
+            <a href="/pages/favorite/favorite.html"
+              ><button>Favorite</button></a
+            >
+          </li>
+          <li onclick="showSidebar()">
+            <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+          </li>
+        </ul>
+        <ul class="sidebar">
+          <li onclick="closeSidebar()">
+            <a href="#"><ion-icon name="close-outline"></ion-icon></a>
+          </li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Favorite</a></li>
+          <img src="/imgs/logo.png" alt="" />
+        </ul>
+      </nav>
+    </header>
+    <!-- }Header -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="image">
+            <img
+              id="recipeImage"
+              src="https://via.placeholder.com/200x150"
+              alt="Recipe Image" />
+          </div>
+        </div>
+        <div class="col">
+          <div class="content">
+            <div class="small-title" id="smallTitle">Small Title</div>
+            <div class="big-title" id="bigTitle">Big Title</div>
+            <p class="paragraph" id="paragraph">One line paragraph</p>
+            <div class="buttons">
+              <button class="btn" id="btn1">Button 1</button>
+              <button class="btn" id="btn2">Button 2</button>
+              <button class="btn" id="btn3">Button 3</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="ingredients-outline">
+            <h2>Ingredients</h2>
+            <ul id="ingredientsList">
+              <li>Ingredient 1</li>
+              <li>Ingredient 2</li>
+              <li>Ingredient 3</li>
+              <!-- Add more ingredients as needed -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer{ -->
+    <footer class="footer" style="height: fit-content">
+      <div class="footer-left col-md-4 col-sm-6">
+        <p class="about">
+          <span> About the company</span> Ut congue augue non tellus bibendum,
+          in varius tellus condimentum. In scelerisque nibh tortor, sed rhoncus
+          odio condimentum in. Sed sed est ut sapien ultrices eleifend. Integer
+          tellus est, vehicula eu lectus tincidunt, ultricies feugiat leo.
+          Suspendisse tellus elit, pharetra in hendrerit ut, aliquam quis augue.
+          Nam ut nibh mollis, tristique ante sed, viverra massa.
+        </p>
+      </div>
+      <div class="footer-center col-md-4 col-sm-6">
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p>
+            <a href="mailto:23P0360@eng.asu.edu.eg"> 23P0360@eng.asu.edu.eg</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-right col-md-4 col-sm-6">
+        <h2>Recipe<span> Finder</span></h2>
+        <p class="menu">
+          <a href="/index.html"> Home</a> |
+          <a href="/pages/about/about.html"> About</a> |
+          <a href="mailto:23P0360@eng.asu.edu.eg"> Contact</a>
+        </p>
+        <p class="name">Recipe Finder &copy; 2024</p>
+      </div>
+    </footer>
+    <!-- }Footer -->
+    <script src="/main.js"></script>
+    <script src="recipe.js"></script>
   </body>
 </html>

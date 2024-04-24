@@ -6,11 +6,7 @@
   font-family: "Poppins", sans-serif;
 }
 
-body {
-  min-height: 100vh;
-  background-image: url("./imgs/hp_img.jpg");
-  background-position: center;
-}
+
 
 /* Header */
 .logo {
@@ -125,9 +121,6 @@ h2 {
 }
 
 /*! Search bar */
-/* Google Fonts - Poppins */
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
-
 .input-box {
   position: relative;
   height: 76px;
@@ -135,20 +128,15 @@ h2 {
   width: 100%;
   background: #fff;
   margin: 0 20px;
-  border-radius: 8px;
+  border-radius: 80px !important;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
-.input-box i,
 .input-box .button {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
-.input-box i {
-  left: 20px;
-  font-size: 30px;
-  color: #707070;
-}
+
 .input-box input {
   height: 100%;
   width: 100%;
@@ -163,13 +151,13 @@ h2 {
   min-width: 110px;
   width: 20%;
   right: 20px;
-  font-size: 16px;
-  font-weight: 400;
-  color: #fff;
+  font-size: 18px;
+  font-weight: 800;
+  color: bisque;
   border: none;
   padding: 12px 30px;
-  border-radius: 6px;
-  background-color: #ecbd00;
+  border-radius: 30px;
+  background-color: firebrick;
   cursor: pointer;
 }
 .input-box .button.clicked {

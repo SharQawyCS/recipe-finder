@@ -1,99 +1,74 @@
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <title>Favorite recipes</title>
-    <link rel="stylesheet" href="favorite.css">
-    <script src="favorite.js" defer></script>
-</head>
-<header>
-    <element>
-        <h1>Recipe-Finder</h1>
-        <br>
-        <nav>
-            <ul>
-                <li><a href="../../index.html">Home</a></li>
-                <li><a href="../about/about.html">About</a></li>
-            </ul>
-        </nav>
-    </element>
+    <link rel="stylesheet" href="favorite.css" />
+    <link rel="stylesheet" href="/main.css" />
+  </head>
+  <!-- Header{ -->
+  <header>
+    <img src="/imgs/logo.png" alt="" class="logo" />
+    <nav>
+      <ul class="navlinks">
+        <li class="items"><a href="/index.html">Home</a></li>
+        <li>
+          <a href="/pages/favorite/favorite.html"><button>Favorite</button></a>
+        </li>
+        <li onclick="showSidebar()">
+          <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+        </li>
+      </ul>
+      <ul class="sidebar">
+        <li onclick="closeSidebar()">
+          <a href="#"><ion-icon name="close-outline"></ion-icon></a>
+        </li>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Favorite</a></li>
+        <img src="/imgs/logo.png" alt="" />
+      </ul>
+    </nav>
+  </header>
+  <!-- }Header -->
 
-    <div id="search-box">
-        <input type="text" placeholder="Search recipes">
-        <button>Search</button>
-    </div>
-
-
-    <img src="Logo.png" alt="Logo" id="logo">
-
-</header>
-
-<body>
-    <br>
+  <body>
+    <br />
     <h2>Your Favorite Recipes</h2>
     <main id="favorite-recipe">
-        <!-- display favorite recipes here -->
-
+      <!-- display favorite recipes here -->
     </main>
-
-    <footer>
-
-        <div class="footer">
-            <div>
-                <h4>Company</h4>
-                <ul>
-                    <li>
-                        <a href="../../index.html">home page</a>
-                    </li>
-                    <li>
-                        <a href="../about/about.html">about us</a>
-                    </li>
-                    <li>
-                        <a href="#">our services</a>
-                    </li>
-                    <li>
-                        <a href="#">privacy policy</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div>
-                <h4>Get help</h4>
-                <ul>
-                    <li>
-                        <a href="#">FAQs</a>
-                    </li>
-                    <li>
-                        <a href="#">Help & support</a>
-                    </li>
-                </ul>
-            </div>
-
-            <div class="follow">
-                <h4>Follow Us</h4>
-                <ul>
-                    <li><a href="https://www.facebook.com/" target="_blank"><img src="fb.png" alt="Facebook"></a></li>
-                    <li><a href="https://twitter.com/" target="_blank"><img src="x.png" alt="Twitter"></a></li>
-                    <li><a href="https://www.instagram.com/" target="_blank"><img src="ins.png" alt="Instagram"></a>
-                    </li>
-                    <li><a href="https://www.youtube.com/" target="_blank"><img src="youtube.png" alt="YouTube"></a>
-                    </li>
-                </ul>
-            </div>
-
-
-            <!-- to make space in the right of footer -->
-            <div>
-                <a href="#"></a>
-            </div>
-        </div>
-
-        <p id="right">
-            <spam>Copyright &copy;2024: Designed by <b>Fighters</b></spam>
+    <!-- Footer{ -->
+    <footer class="footer" style="height: fit-content">
+      <div class="footer-left col-md-4 col-sm-6">
+        <p class="about">
+          <span> About the company</span> Ut congue augue non tellus bibendum,
+          in varius tellus condimentum. In scelerisque nibh tortor, sed rhoncus
+          odio condimentum in. Sed sed est ut sapien ultrices eleifend. Integer
+          tellus est, vehicula eu lectus tincidunt, ultricies feugiat leo.
+          Suspendisse tellus elit, pharetra in hendrerit ut, aliquam quis augue.
+          Nam ut nibh mollis, tristique ante sed, viverra massa.
         </p>
+      </div>
+      <div class="footer-center col-md-4 col-sm-6">
+        <div>
+          <i class="fa fa-envelope"></i>
+          <p>
+            <a href="mailto:23P0360@eng.asu.edu.eg"> 23P0360@eng.asu.edu.eg</a>
+          </p>
+        </div>
+      </div>
+      <div class="footer-right col-md-4 col-sm-6">
+        <h2>Recipe<span> Finder</span></h2>
+        <p class="menu">
+          <a href="/index.html"> Home</a> |
+          <a href="/pages/about/about.html"> About</a> |
+          <a href="mailto:23P0360@eng.asu.edu.eg"> Contact</a>
+        </p>
+        <p class="name">Recipe Finder &copy; 2024</p>
+      </div>
     </footer>
+    <!-- }Footer -->
+    <script src="/main.js"></script>
 
-</body>
-
-
+    <script src="favorite.js" defer></script>
+  </body>
 </html>
