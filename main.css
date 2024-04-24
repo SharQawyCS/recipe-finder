@@ -1,12 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Fira Sans", sans-serif;
 }
-
-
 
 /* Header */
 .logo {
@@ -88,12 +86,7 @@ button:hover {
   width: 100%;
   height: 120px;
 }
-nav ion-icon {
-  font-size: 2em;
-  position: absolute;
-  top: 35px;
-  right: 20px;
-}
+
 h2 {
   color: firebrick;
   font-size: 2em;
@@ -101,11 +94,7 @@ h2 {
   margin: 20%;
   text-align: center;
 }
-@media only screen and (min-width: 830px) {
-  .navlinks ion-icon {
-    display: none;
-  }
-}
+
 @media only screen and (max-width: 830px) {
   .navlinks .items {
     display: none;
@@ -228,30 +217,46 @@ h2 {
   justify-content: center;
 }
 
+#product-container h3 {
+  margin-bottom: 70vh;
+  color: firebrick;
+  font-weight: 500;
+}
+
+#product-container h3 span {
+  font-weight: 900;
+}
 /* Default styles for product card */
 .product-card {
   width: calc(33% - 20px); /* 25% of the container width minus the gap */
   margin: 10px;
   background-color: #fff;
   border-radius: 15px;
-  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
   overflow: hidden;
+  transition: all 0.15s ease-in allow-discrete;
+}
+.product-card:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 /* Default styles for product image container */
 .product-img-container {
   position: relative;
   overflow: hidden;
+  padding: 12px 12px 5px;
 }
 
 /* Default styles for product image */
 .product-img {
   width: 100%;
-  height: 200px; /* Adjust the height as needed */
-  background-color: rgb(55, 0, 255);
-  background-size: contain;
+  height: 200px;
+  background-color: bisque; /* For testing, SharQawyCS */
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 10px;
 }
 
 /* Default styles for product info */
@@ -264,52 +269,18 @@ h2 {
   margin: 15px 0;
   font-size: 20px;
   font-weight: 700;
+  text-align: start;
+  color: #634b4f;
 }
 
 /* Default styles for product description */
 .product-description {
   font-size: 16px;
-  margin-bottom: 10px;
-}
-
-/* Default styles for product price */
-.product-price {
-  font-size: 20px;
   font-weight: 700;
-}
-
-/* Default styles for icon container */
-.icon-container {
-  display: flex;
-  justify-content: left;
-  align-items: flex-start;
-  gap: 10px;
-}
-
-/* Default styles for icons */
-.icon-container i {
-  font-size: 24px;
-  cursor: pointer;
-  transition: color 0.3s ease-in-out;
-}
-
-/* Default styles for heart icon */
-.fa-heart {
-  color: white;
-  -webkit-text-stroke-width: 2px;
-  -webkit-text-stroke-color: black;
-  transition: all 0.4s ease;
-}
-
-/* Default styles for full heart icon */
-.fa-heart.full {
-  color: #000;
-}
-
-/* Default styles for cart icon */
-.cart-icon {
-  font-size: 24px;
-  cursor: pointer;
+  margin-bottom: 10px;
+  color: firebrick;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 /* Media query for small screens */

@@ -1,3 +1,6 @@
+const apiKey = "88000ac38f8ecc420d6524fbf50c91cd";
+getDataFromAPIThenDisplay("main"); //When page loaded, seearch for main to display some main or common recipes
+
 //Check if user logged in or not, if not, redrict him to log-in page
 const medicalDataJSON = localStorage.getItem("medical-data");
 const medicalData = JSON.parse(medicalDataJSON);
@@ -23,100 +26,44 @@ function closeSidebar() {
 }
 
 //Search bar
+let inputVal = document.querySelector(".input-box input");
 const button = document.querySelector(".button");
 
-button.addEventListener("mousedown", () => button.classList.add("clicked"));
+button.addEventListener("click", () => {
+  getDataFromAPIThenDisplay(inputVal.value);
+});
 
 //Generate recipe box
 // Function to generate product cards
+const container = document.getElementById("product-container");
 function generateProductCards(products) {
-  const container = document.getElementById("product-container");
-
+  container.innerText = ""; //To delete the old results before Displying new results
   products.forEach((product) => {
     const productCard = document.createElement("div");
     productCard.classList.add("product-card");
-
     const productImgContainer = document.createElement("div");
     productImgContainer.classList.add("product-img-container");
     const productImg = document.createElement("div");
     productImg.classList.add("product-img");
-    productImg.style.backgroundImage = `url(${product.imgSrc})`;
+    productImg.style.backgroundImage = `url(${product.recipe.image})`;
     productImgContainer.appendChild(productImg);
-
     const productInfo = document.createElement("div");
     productInfo.classList.add("product-info");
     const productTitle = document.createElement("h2");
     productTitle.classList.add("product-title");
-    productTitle.textContent = product.title;
+    productTitle.textContent = product.recipe.label;
     const productDescription = document.createElement("p");
     productDescription.classList.add("product-description");
-    productDescription.textContent = product.description;
-    const productPrice = document.createElement("p");
-    productPrice.classList.add("product-price");
-    productPrice.textContent = product.price;
-    const iconContainer = document.createElement("div");
-    iconContainer.classList.add("icon-container");
-    const heartIcon = document.createElement("i");
-    heartIcon.classList.add("fas", "fa-heart");
-    const cartIcon = document.createElement("i");
-    cartIcon.classList.add("fas", "fa-shopping-cart", "cart-icon");
-
-    iconContainer.appendChild(heartIcon);
-    iconContainer.appendChild(cartIcon);
-    productInfo.appendChild(productTitle);
+    productDescription.textContent = product.recipe.dishType[0];
     productInfo.appendChild(productDescription);
-    productInfo.appendChild(productPrice);
-    productInfo.appendChild(iconContainer);
-
+    productInfo.appendChild(productTitle);
     productCard.appendChild(productImgContainer);
     productCard.appendChild(productInfo);
-
     container.appendChild(productCard);
   });
 }
 
-// Sample data
-const products = [
-  {
-    title: "Nike Shoes",
-    description: "High-quality Nike shoes for your active lifestyle.",
-    price: "$129.99",
-    imgSrc: "./imgs/hp_img.jpg",
-  },
-  {
-    title: "Adidas Jacket",
-    description: "Stylish Adidas jacket to keep you warm.",
-    price: "$89.99",
-    imgSrc: "https://via.placeholder.com/300",
-  },
-  {
-    title: "Puma Backpack",
-    description: "Durable Puma backpack for all your essentials.",
-    price: "$49.99",
-    imgSrc: "https://via.placeholder.com/300",
-  },
-  {
-    title: "Nike Shoes",
-    description: "High-quality Nike shoes for your active lifestyle.",
-    price: "$129.99",
-    imgSrc: "./imgs/hp_img.jpg",
-  },
-  {
-    title: "Adidas Jacket",
-    description: "Stylish Adidas jacket to keep you warm.",
-    price: "$89.99",
-    imgSrc: "https://via.placeholder.com/300",
-  },
-  {
-    title: "Puma Backpack",
-    description: "Durable Puma backpack for all your essentials.",
-    price: "$49.99",
-    imgSrc: "https://via.placeholder.com/300",
-  },
-];
-
-// Call the function with sample data
-generateProductCards(products);
+// generateProductCards(products);
 
 document.addEventListener("click", (event) => {
   const clickedElement = event.target;
@@ -127,34 +74,37 @@ document.addEventListener("click", (event) => {
 
 // ! ! ! ! ! ! ! ! ! ! ! ! ! ! !   A.   P.   I.    ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
 
-// Set up variables
-const apiKey = "88000ac38f8ecc420d6524fbf50c91cd";
-const query = "chicken"; // Example query for chicken recipes
+//Search-bar uses this ƒn
+function getDataFromAPIThenDisplay(query) {
+  // Construct the request URL
+  const requestUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=bf8d8944&app_key=${apiKey}`;
 
-// Construct the request URL
-// const requestUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=bf8d8944&app_key=${apiKey}`;
-const requestUrl = `https://api.edamam.com/api/recipes/v2/8d3e4b9299664a1ca8e6f5bdb8532300?type=public&app_id=bf8d8944&app_key=88000ac38f8ecc420d6524fbf50c91cd`;
+  // const requestUrl = `https://api.edamam.com/api/recipes/v2/8d3e4b9299664a1ca8e6f5bdb8532300?type=public&app_id=bf8d8944&app_key=88000ac38f8ecc420d6524fbf50c91cd`;
 
-// Make a GET request to the Edamam API
-fetch(requestUrl)
-  .then((response) => {
-    if (!response.ok) {
-      throw new Error("Network response was not ok");
-    }
-    return response.json();
-  })
-  .then((data) => {
-    // Handle the response data
-    console.log(data.hits[0]);
-    // console.log(data.hits[0].recipe);
-    // console.log(data.hits[0].recipe);
-    console.log(data.hits[0].recipe.mealType);
-    console.log(data.hits[0].recipe.ingredientLines); //Array
-    console.log(data.hits[0].recipe.dietLables);
-    console.log(data.hits[0].recipe.image);
-    console.log(data.hits[0].recipe.totalTime);
-    // Extract and use recipe data as needed
-  })
-  .catch((error) => {
-    console.error("There was a problem with the fetch operation:", error);
-  });
+  // Make a GET request to the Edamam API
+  fetch(requestUrl)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      // Handle the response data
+      console.log(data);
+      console.log(data.hits[0]);
+      // console.log(data.hits[0].recipe);
+      // console.log(data.hits[0].recipe);
+      console.log(data.hits[0].recipe.mealType);
+      console.log(data.hits[0].recipe.ingredientLines); //Array
+      console.log(data.hits[0].recipe.dietLables);
+      console.log(data.hits[0].recipe.image);
+      console.log(data.hits[0].recipe.totalTime);
+      // Extract and use recipe data as needed
+      generateProductCards(data.hits); //To Fill recipe box with API data
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+      container.innerHTML = `<h3>Cannot found result for <span>"${inputVal.value}"</span>, try searching with diffrent words <3</h3>`;
+    });
+}
