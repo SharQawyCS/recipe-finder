@@ -38,16 +38,14 @@ body {
 
 .team a {
   font-size: 18px;
-  letter-spacing: 1.3px;
+  letter-spacing: 1.4px;
   display: block;
   margin: 5px;
   color: #22313f !important;
   background-color: wheat !important;
   border-radius: 10px;
 }
-.team a::before {
-  content: "- ";
-}
+
 
 ul li {
   margin-bottom: 10px;
