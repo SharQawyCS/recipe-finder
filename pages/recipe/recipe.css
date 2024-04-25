@@ -35,11 +35,13 @@
 }
 
 .small-title {
-  font-size: 1.5em;
+  color: firebrick;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
 .big-title {
+  color: #634b4f;
   font-size: 2em;
   font-weight: bold;
   margin-top: 10px;
@@ -63,11 +65,14 @@
 }
 
 .ingredients-outline h2 {
+  letter-spacing: 1.5px;
+  color: #222831;
   font-size: 2em;
   font-weight: bold;
 }
 
 .ingredients-outline ul {
+  color: #22313f;
   list-style-type: none;
   padding: 0;
 }
@@ -75,6 +80,9 @@
 .ingredients-outline ul li {
   font-size: 1.2em;
   margin-top: 10px;
+}
+.ingredients-outline ul li::before {
+  content: "-  ";
 }
 
 /* Extra small devices (phones, 600px and down) */
