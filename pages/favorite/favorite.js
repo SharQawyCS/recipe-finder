@@ -1,3 +1,12 @@
+//Loader functions
+const loader = document.getElementById("loader-container");
+function showLoader() {
+  loader.style.display = "block";
+}
+function hideLoader() {
+  loader.style.display = "none";
+}
+
 let recipeUrlEx = "";
 let recipeIdEx = "";
 
@@ -229,41 +238,35 @@ btn3.addEventListener("click", function () {
 });
 
 function getDataFromAPIThenDisplay(query) {
-  // const requestUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=bf8d8944&app_key=${apiKey}`;
+  if (query.length === 0) {
+    hideLoader();
+    document.getElementById("fav-container").innerHTML += `
+    <h2 style="color: firebrick;">Your favorite list is empty, try to add some recipes first</h2>
+    `;
+  }
   query.forEach((favRecipeId) => {
     const requestUrl = `https://api.edamam.com/api/recipes/v2/${favRecipeId}?type=public&app_id=bf8d8944&app_key=88000ac38f8ecc420d6524fbf50c91cd`;
     // Make a GET request to the Edamam API
     fetch(requestUrl)
       .then((response) => {
         if (!response.ok) {
+          document.getElementById("fav-container").innerHTML = `
+  <h1>Your data was deleted, you need to sign-in again </h1>`;
           throw new Error("Network response was not ok");
         }
         return response.json();
       })
       .then((data) => {
-        console.log("===============");
-        console.log(recipesHit);
-        console.log(data);
         recipesHit.push(data);
-        console.log(recipesHit);
-        console.log("===============");
-        // Handle the response data
-        // console.log(data);
-        // console.log(data.hits[0]);
-        // console.log(data.hits[0].recipe);
-        // console.log(data.hits[0].recipe);
-        // console.log(data.hits[0].recipe.mealType);
-        // console.log(data.hits[0].recipe.ingredientLines); //Array
-        // console.log(data.hits[0].recipe.dietLables);
-        // console.log(data.hits[0].recipe.image);
-        // console.log(data.hits[0].recipe.url);
-
-        // Extract and use recipe data as needed
         generateProductCards(recipesHit); //To Fill recipe box with API data
       })
       .catch((error) => {
+        document.getElementById("fav-container").innerHTML = `
+  <h1>Check Internet Connection PLZ</h1>`;
         console.error("There was a problem with the fetch operation:", error);
       });
+
+    setTimeout(hideLoader, 1500);
   });
 }
 generateProductCards(recipesHit);
