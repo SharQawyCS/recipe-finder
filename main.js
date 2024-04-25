@@ -1,5 +1,9 @@
+let recipeUrlEx = "";
+let recipeIdEx = "";
+
 const apiKey = "88000ac38f8ecc420d6524fbf50c91cd";
 getDataFromAPIThenDisplay("main"); //When page loaded, seearch for main to display some main or common recipes
+let recipesHit = {};
 
 //Check if user logged in or not, if not, redrict him to log-in page
 const medicalDataJSON = localStorage.getItem("medical-data");
@@ -30,7 +34,10 @@ let inputVal = document.querySelector(".input-box input");
 const button = document.querySelector(".button");
 
 button.addEventListener("click", () => {
-  getDataFromAPIThenDisplay(inputVal.value);
+  //To ensure that user enter anything
+  if (inputVal.value) {
+    getDataFromAPIThenDisplay(inputVal.value);
+  }
 });
 
 //Generate recipe box
@@ -38,8 +45,10 @@ button.addEventListener("click", () => {
 const container = document.getElementById("product-container");
 function generateProductCards(products) {
   container.innerText = ""; //To delete the old results before Displying new results
+  let i = 0;
   products.forEach((product) => {
     const productCard = document.createElement("div");
+    productCard.classList.add(i++); //To set index for each recipe
     productCard.classList.add("product-card");
     const productImgContainer = document.createElement("div");
     productImgContainer.classList.add("product-img-container");
@@ -60,17 +69,25 @@ function generateProductCards(products) {
     productCard.appendChild(productImgContainer);
     productCard.appendChild(productInfo);
     container.appendChild(productCard);
+
+    productCard.addEventListener("click", () => {
+      recipeUrlEx = recipesHit[productCard.classList[0]].recipe.url;
+      recipeIdEx = extractRecipeId(
+        recipesHit[productCard.classList[0]]._links.self.href
+      );
+      console.log(productCard.classList[0]); //It prints the index of the certain recipe
+      openRecipePopUpWithData(
+        recipesHit[productCard.classList[0]].recipe.dishType,
+        recipesHit[productCard.classList[0]].recipe.label,
+        recipesHit[productCard.classList[0]].recipe.totalTime,
+        recipesHit[productCard.classList[0]].recipe.image,
+        recipesHit[productCard.classList[0]].recipe.ingredientLines,
+        recipesHit[productCard.classList[0]].recipe.url,
+        extractRecipeId(recipesHit[productCard.classList[0]]._links.self.href) //This pass recipe ID
+      );
+    });
   });
 }
-
-// generateProductCards(products);
-
-document.addEventListener("click", (event) => {
-  const clickedElement = event.target;
-  if (clickedElement.classList.contains("fa-heart")) {
-    clickedElement.classList.toggle("full");
-  }
-});
 
 // ! ! ! ! ! ! ! ! ! ! ! ! ! ! !   A.   P.   I.    ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
 
@@ -90,6 +107,7 @@ function getDataFromAPIThenDisplay(query) {
       return response.json();
     })
     .then((data) => {
+      recipesHit = data.hits;
       // Handle the response data
       console.log(data);
       console.log(data.hits[0]);
@@ -99,7 +117,7 @@ function getDataFromAPIThenDisplay(query) {
       console.log(data.hits[0].recipe.ingredientLines); //Array
       console.log(data.hits[0].recipe.dietLables);
       console.log(data.hits[0].recipe.image);
-      console.log(data.hits[0].recipe.totalTime);
+      console.log(data.hits[0].recipe.url);
       // Extract and use recipe data as needed
       generateProductCards(data.hits); //To Fill recipe box with API data
     })
@@ -108,3 +126,117 @@ function getDataFromAPIThenDisplay(query) {
       container.innerHTML = `<h3>Cannot found result for <span>"${inputVal.value}"</span>, try searching with diffrent words <3</h3>`;
     });
 }
+// !RECIPE POPUP
+// Get references to the elements
+const smallTitleElement = document.getElementById("smallTitle");
+const bigTitleElement = document.getElementById("bigTitle");
+const paragraphElement = document.getElementById("paragraph");
+const recipeImageElement = document.getElementById("recipeImage");
+const ingredientsListElement = document.getElementById("ingredientsList");
+
+// Define the recipe data
+const recipeData = {
+  smallTitle: "New Small Title",
+  bigTitle: "New Big Title",
+  paragraph: "New One line paragraph",
+  imageURL: "https://via.placeholder.com/400x300",
+  ingredients: ["New Ingredient 1", "New Ingredient 2", "New Ingredient 3"],
+};
+
+// Function to update the content
+function updateContent(data) {
+  smallTitleElement.textContent = data.smallTitle;
+  bigTitleElement.textContent = data.bigTitle;
+  paragraphElement.textContent = data.paragraph;
+  recipeImageElement.src = data.imageURL;
+
+  // Clear existing ingredients
+  ingredientsListElement.innerHTML = "";
+
+  // Add new ingredients
+  data.ingredients.forEach((ingredient) => {
+    const li = document.createElement("li");
+    li.textContent = ingredient;
+    ingredientsListElement.appendChild(li);
+  });
+}
+
+function openRecipePopUpWithData(
+  smallTitle,
+  bigTitle,
+  oneLineParagraph,
+  imgSrc,
+  ingredients,
+  recipeUrl,
+  recipeId
+) {
+  const recipePopup = document.querySelector(".recipe-pop-up");
+  //This stupid block of code for: عشان يبقى شكلها حلو وهي بتفتح
+  const intervalDuration = 1; // mili seconds
+  const targetWidth = 95; // percent
+  const targetHeight = 95; //  percent
+  const stepWidth = targetWidth / ((0.01 * 1000) / intervalDuration);
+  const stepHeight = targetHeight / ((0.01 * 1000) / intervalDuration);
+
+  let currentWidth = 0;
+  let currentHeight = 0;
+
+  recipePopup.style.width = "0%";
+  recipePopup.style.height = "0%";
+  recipePopup.style.display = "block";
+
+  const interval = setInterval(function () {
+    currentWidth += stepWidth;
+    currentHeight += stepHeight;
+
+    recipePopup.style.width = currentWidth + "%";
+    recipePopup.style.height = currentHeight + "%";
+
+    if (currentWidth >= targetWidth || currentHeight >= targetHeight) {
+      clearInterval(interval);
+    }
+  }, intervalDuration);
+
+  document.body.style.overflow = "hidden"; // Prevetn scrolling of the main page
+
+  // Update content
+  updateContent({
+    smallTitle: smallTitle,
+    bigTitle: bigTitle,
+    paragraph: oneLineParagraph,
+    imageURL: imgSrc,
+    ingredients: ingredients,
+  });
+}
+
+function closeRecipePopUp() {
+  document.querySelector(".recipe-pop-up").style.display = "none";
+  document.body.style.overflow = "auto"; // Allow scrolling of the main page
+}
+
+//Extract ID
+function extractRecipeId(url) {
+  const pattern = /\/([\w\d]+)\?/;
+  const match = url.match(pattern);
+  if (match && match.length >= 2) {
+    return match[1];
+  } else {
+    return null;
+  }
+}
+
+const btn1 = document.getElementById("btn1");
+const btn2 = document.getElementById("btn2");
+const btn3 = document.getElementById("btn3");
+
+btn1.addEventListener("click", function () {
+  console.log(recipeIdEx);
+});
+
+btn2.addEventListener("click", () => {
+  window.open(recipeUrlEx, "_blank");
+});
+
+btn3.addEventListener("click", function () {
+  closeRecipePopUp();
+});

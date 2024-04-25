@@ -14,10 +14,9 @@
   cursor: pointer;
 }
 
-li,
+.index-page li,
 a,
 button {
-  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 16px;
   color: bisque;
@@ -45,7 +44,7 @@ header:hover {
 }
 
 button {
-  width: 100%;
+  /* width: 100%; */
   padding: 12px;
   background-color: firebrick;
   border-radius: 50px;
@@ -87,7 +86,7 @@ button:hover {
   height: 120px;
 }
 
-h2 {
+.index-page h2 {
   color: firebrick;
   font-size: 2em;
   font-weight: 1000;
@@ -434,6 +433,7 @@ h2 {
 
 .footer .footer-right {
   width: 35%;
+  text-align: center;
 }
 
 .footer h2 {
@@ -489,4 +489,26 @@ h2 {
   .footer .footer-center i {
     margin-left: 0;
   }
+}
+
+.recipe-pop-up {
+  display: none;
+  border: firebrick dashed 4px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 0%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 999; /* Ensure the popup is above other content */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  background-color: white;
+  padding: 50px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+  overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+  border-radius: 20px;
+  transition: all 0.3s ease;
 }
