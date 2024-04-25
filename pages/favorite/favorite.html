@@ -1,43 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Favorite recipes</title>
-    <link rel="stylesheet" href="favorite.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Finder</title>
+    <link rel="stylesheet" href="/pages/recipe/recipe.css" />
     <link rel="stylesheet" href="/main.css" />
   </head>
-  <!-- Header{ -->
-  <header>
-    <img src="/imgs/logo.png" alt="" class="logo" />
-    <nav>
-      <ul class="navlinks">
-        <li class="items"><a href="/index.html">Home</a></li>
-        <li>
-          <a href="/pages/favorite/favorite.html"><button>Favorite</button></a>
-        </li>
-        <li onclick="showSidebar()">
-          <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
-        </li>
-      </ul>
-      <ul class="sidebar">
-        <li onclick="closeSidebar()">
-          <a href="#"><ion-icon name="close-outline"></ion-icon></a>
-        </li>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Favorite</a></li>
-        <img src="/imgs/logo.png" alt="" />
-      </ul>
-    </nav>
-  </header>
-  <!-- }Header -->
-
   <body>
-    <br />
-    <h2>Your Favorite Recipes</h2>
-    <main id="favorite-recipe">
-      <!-- display favorite recipes here -->
-    </main>
+    <!-- Header{ -->
+    <header>
+      <img src="/imgs/logo.png" alt="" class="logo" />
+      <nav>
+        <ul class="navlinks">
+          <li class="items"><a href="/index.html">Home</a></li>
+          <li>
+            <a href="/pages/favorite/favorite.html"
+              ><button>Favorite</button></a
+            >
+          </li>
+          <li onclick="showSidebar()">
+            <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+          </li>
+        </ul>
+        <ul class="sidebar">
+          <li onclick="closeSidebar()">
+            <a href="#"><ion-icon name="close-outline"></ion-icon></a>
+          </li>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Favorite</a></li>
+          <img src="/imgs/logo.png" alt="" />
+        </ul>
+      </nav>
+    </header>
+    <!-- }Header -->
+
+    <div class="container">
+      <!-- Recipe boxes container -->
+      <div id="product-container"></div>
+    </div>
+
     <!-- Footer{ -->
-    <footer class="footer" style="height: fit-content">
+    <footer class="footer">
       <div class="footer-left col-md-4 col-sm-6">
         <p class="about">
           <span> About the company</span> Ut congue augue non tellus bibendum,
@@ -67,8 +71,48 @@
       </div>
     </footer>
     <!-- }Footer -->
-    <script src="/main.js"></script>
 
-    <script src="favorite.js" defer></script>
+    <!-- !RECIPE -->
+    <div class="recipe-pop-up">
+      <div class="row">
+        <div class="col">
+          <div class="image">
+            <img
+              id="recipeImage"
+              src="https://via.placeholder.com/200x150"
+              alt="Recipe Image" />
+          </div>
+        </div>
+        <div class="col">
+          <div class="content">
+            <div class="small-title" id="smallTitle">Small Title</div>
+            <div class="big-title" id="bigTitle">Big Title</div>
+            <p class="paragraph" id="paragraph">One line paragraph</p>
+            <div class="buttons">
+              <button class="btn" id="btn1">Favorite</button>
+              <button class="btn" id="btn2">How to</button>
+              <button class="btn" id="btn3">Back</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="ingredients-outline">
+            <h2>Ingredients</h2>
+            <ul id="ingredientsList">
+              <li>Ingredient 1</li>
+              <li>Ingredient 2</li>
+              <li>Ingredient 3</li>
+              <!-- Add more ingredients as needed -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- !RECIPE -->
+
+    <script src="./favorite.js"></script>
+    <!-- <script src="/pages/recipe/recipe.js"></script> -->
   </body>
 </html>

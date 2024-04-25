@@ -7,12 +7,13 @@
 body {
   background-image: url(/imgs/hp_img.jpg);
   font-family: Arial, sans-serif;
+  min-height: 100vh !important;
 }
 
 h1,
 h2 {
   text-align: center;
-  color: whitesmoke;
+  color: firebrick;
 }
 
 header {

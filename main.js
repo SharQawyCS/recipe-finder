@@ -36,9 +36,19 @@ const button = document.querySelector(".button");
 button.addEventListener("click", () => {
   //To ensure that user enter anything
   if (inputVal.value) {
+    showLoader();
     getDataFromAPIThenDisplay(inputVal.value);
   }
 });
+
+//Loader functions
+const loader = document.getElementById("loader-container");
+function showLoader() {
+  loader.style.display = "block";
+}
+function hideLoader() {
+  loader.style.display = "none";
+}
 
 //Generate recipe box
 // Function to generate product cards
@@ -96,8 +106,6 @@ function getDataFromAPIThenDisplay(query) {
   // Construct the request URL
   const requestUrl = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=bf8d8944&app_key=${apiKey}`;
 
-  // const requestUrl = `https://api.edamam.com/api/recipes/v2/8d3e4b9299664a1ca8e6f5bdb8532300?type=public&app_id=bf8d8944&app_key=88000ac38f8ecc420d6524fbf50c91cd`;
-
   // Make a GET request to the Edamam API
   fetch(requestUrl)
     .then((response) => {
@@ -107,6 +115,7 @@ function getDataFromAPIThenDisplay(query) {
       return response.json();
     })
     .then((data) => {
+      hideLoader();
       recipesHit = data.hits;
       // Handle the response data
       console.log(data);
@@ -123,7 +132,7 @@ function getDataFromAPIThenDisplay(query) {
     })
     .catch((error) => {
       console.error("There was a problem with the fetch operation:", error);
-      container.innerHTML = `<h3>Cannot found result for <span>"${inputVal.value}"</span>, try searching with diffrent words <3</h3>`;
+      container.innerHTML = `<h3>Cannot found result for <span>"${inputVal.value}"</span>, try searching with diffrent words or check the <span>internet</span> connection <3</h3>`;
     });
 }
 // !RECIPE POPUP
@@ -267,3 +276,18 @@ btn2.addEventListener("click", () => {
 btn3.addEventListener("click", function () {
   closeRecipePopUp();
 });
+
+function logout() {
+  console.log("Logout");
+  localStorage.clear();
+  document.getElementById("hm-container").style.display = "block";
+  document.getElementById("hm-container").style.textAlign = "center";
+  document.getElementById("hm-container").innerHTML = `
+  <h1>Your data was deleted, you need to sign-in again </h1>
+</br>
+  <h2>Redirecting to log-in page in 3 seconds.....</h2>
+  `;
+  setTimeout(function () {
+    window.location.href = "/pages/log-in/log-in.html"; //Open login pagee
+  }, 3000);
+}
