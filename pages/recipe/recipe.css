@@ -138,6 +138,10 @@ button {
   border: none;
   z-index: 999;
 }
+
+.in-fav {
+  background-color: darkgreen !important;
+}
 .container {
   margin: auto;
   margin-top: 100px;

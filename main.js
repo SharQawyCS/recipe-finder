@@ -197,6 +197,15 @@ function openRecipePopUpWithData(
     }
   }, intervalDuration);
 
+  //If the recipe in favorite, make the btn1 greeen.
+  let favRecipes = JSON.parse(localStorage.getItem("favRecipes")) || [];
+  const index = favRecipes.indexOf(recipeIdEx);
+  if (index !== -1) {
+    document.getElementById("btn1").classList.add("in-fav");
+  } else {
+    document.getElementById("btn1").classList.remove("in-fav");
+  }
+
   document.body.style.overflow = "hidden"; // Prevetn scrolling of the main page
 
   // Update content
@@ -230,7 +239,25 @@ const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 
 btn1.addEventListener("click", function () {
-  console.log(recipeIdEx);
+  console.log("Certain RecipeIdEx: " + recipeIdEx);
+  // Retrieve the current favRecipes from local storage
+  let favRecipes = JSON.parse(localStorage.getItem("favRecipes")) || [];
+
+  // Check if recipeIdEx is already in favRecipes
+  const index = favRecipes.indexOf(recipeIdEx);
+
+  if (index !== -1) {
+    // RecipeIdEx is already in favRecipes, so remove it
+    favRecipes.splice(index, 1);
+    btn1.classList.remove("in-fav");
+  } else {
+    // RecipeIdEx is not in favRecipes, so add it
+    favRecipes.push(recipeIdEx);
+    btn1.classList.add("in-fav");
+  }
+
+  // Save the updated favRecipes back to local storage
+  localStorage.setItem("favRecipes", JSON.stringify(favRecipes));
 });
 
 btn2.addEventListener("click", () => {
