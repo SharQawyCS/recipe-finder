@@ -1,4 +1,4 @@
-<!-- Header{ -->
+<!-- !Header{ -->
 <header>
   <img src="/imgs/logo.png" alt="" class="logo" />
   <nav>
@@ -8,17 +8,20 @@
         <a href="/pages/favorite/favorite.html"><button>Favorite</button></a>
       </li>
       <li onclick="showSidebar()">
-        <a href="#"><ion-icon name="menu-outline"></ion-icon></a>
+        <a href="#"><img src="/imgs/sidebar-icon.png" alt="Show" /></a>
       </li>
     </ul>
     <ul class="sidebar">
       <li onclick="closeSidebar()">
-        <a href="#"><ion-icon name="close-outline"></ion-icon></a>
+        <a style="font-size: 20px" href="#">X</a>
       </li>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Favorite</a></li>
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/pages/favorite/favorite.html">Favorite</a></li>
+      <li><a href="/pages/about/about.html">About us</a></li>
+      <li><a href="mailto:sharqawycs@gmail.com">Contact us</a></li>
+      <li><a onclick="logout()" href="#">Log-out</a></li>
       <img src="/imgs/logo.png" alt="" />
     </ul>
   </nav>
 </header>
-<!-- }Header -->
+<!-- !Header -->
