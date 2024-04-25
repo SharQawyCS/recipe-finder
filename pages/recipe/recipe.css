@@ -1,4 +1,4 @@
-/* THis file control recipe pop-up style */
+/* THis file controls recipe pop-up style */
 .row {
   display: flex;
   justify-content: space-between;
@@ -49,7 +49,8 @@
 
 .paragraph {
   font-size: 1.2em;
-  margin-top: 10px;
+  margin: 10px 0;
+  color: #22313f;
 }
 
 .buttons {
@@ -131,7 +132,6 @@
 }
 
 button {
-  font-family: "Montserrat", sans-serif;
   font-weight: 600;
   font-size: 16px;
   color: bisque;
@@ -145,6 +145,16 @@ button {
   transition: all 0.5s, ease 0s;
   border: none;
   z-index: 999;
+}
+.health-lables button {
+  padding: 5px;
+  font-size: 15px;
+  letter-spacing: 1.2px;
+  display: block;
+  margin: 5px;
+  color: #22313f !important;
+  background-color: wheat !important;
+  border-radius: 15px;
 }
 
 .in-fav {

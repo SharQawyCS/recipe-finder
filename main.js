@@ -34,11 +34,21 @@ let inputVal = document.querySelector(".input-box input");
 const button = document.querySelector(".button");
 
 button.addEventListener("click", () => {
-  //To ensure that user enter anything
+  //To ensxure that user enter anything
   if (inputVal.value) {
     showLoader();
     getDataFromAPIThenDisplay(inputVal.value);
   }
+});
+
+let buttons = document.querySelectorAll(".health-lables button");
+
+buttons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // console.log(btn.innerText);
+    showLoader();
+    getDataFromAPIThenDisplay(btn.innerText);
+  });
 });
 
 //Loader functions
@@ -74,6 +84,7 @@ function generateProductCards(products) {
     const productDescription = document.createElement("p");
     productDescription.classList.add("product-description");
     productDescription.textContent = product.recipe.dishType[0];
+
     productInfo.appendChild(productDescription);
     productInfo.appendChild(productTitle);
     productCard.appendChild(productImgContainer);
@@ -89,7 +100,7 @@ function generateProductCards(products) {
       openRecipePopUpWithData(
         recipesHit[productCard.classList[0]].recipe.dishType,
         recipesHit[productCard.classList[0]].recipe.label,
-        recipesHit[productCard.classList[0]].recipe.totalTime,
+        recipesHit[productCard.classList[0]].recipe.mealType,
         recipesHit[productCard.classList[0]].recipe.image,
         recipesHit[productCard.classList[0]].recipe.ingredientLines,
         recipesHit[productCard.classList[0]].recipe.url,
@@ -142,15 +153,6 @@ const bigTitleElement = document.getElementById("bigTitle");
 const paragraphElement = document.getElementById("paragraph");
 const recipeImageElement = document.getElementById("recipeImage");
 const ingredientsListElement = document.getElementById("ingredientsList");
-
-// Define the recipe data
-const recipeData = {
-  smallTitle: "New Small Title",
-  bigTitle: "New Big Title",
-  paragraph: "New One line paragraph",
-  imageURL: "https://via.placeholder.com/400x300",
-  ingredients: ["New Ingredient 1", "New Ingredient 2", "New Ingredient 3"],
-};
 
 // Function to update the content
 function updateContent(data) {
@@ -285,9 +287,9 @@ function logout() {
   document.getElementById("hm-container").innerHTML = `
   <h1>Your data was deleted, you need to sign-in again </h1>
 </br>
-  <h2>Redirecting to log-in page in 3 seconds.....</h2>
+  <h2>Redirecting to log-in page in 5 seconds.....</h2>
   `;
   setTimeout(function () {
     window.location.href = "/pages/log-in/log-in.html"; //Open login pagee
-  }, 3000);
+  }, 5000);
 }
