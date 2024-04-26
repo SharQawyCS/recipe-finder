@@ -109,13 +109,14 @@ button:hover {
     display: none;
   }
 }
-/* Container */
+
+/* !Container */
 .container {
   margin: auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Adjust as needed */
+  min-height: 100vh;
 }
 
 /*! Search bar */
@@ -219,7 +220,6 @@ button:hover {
 }
 
 /*! Producd card */
-/* Default styles for product container */
 #product-container {
   display: flex;
   flex-wrap: wrap;
@@ -235,8 +235,8 @@ button:hover {
 #product-container h3 span {
   font-weight: 900;
 }
-/* Default styles for product card */
 
+/* todo:Sharqawycs */
 .product-card {
   min-width: 280px;
   width: calc(33% - 20px); /* 25% of the container width minus the gap */
@@ -252,14 +252,12 @@ button:hover {
   cursor: pointer;
 }
 
-/* Default styles for product image container */
 .product-img-container {
   position: relative;
   overflow: hidden;
   padding: 12px 12px 5px;
 }
 
-/* Default styles for product image */
 .product-img {
   width: 100%;
   height: 200px;
@@ -270,12 +268,10 @@ button:hover {
   border-radius: 10px;
 }
 
-/* Default styles for product info */
 .product-info {
   padding: 10px;
 }
 
-/* Default styles for product title */
 .product-title {
   margin: 15px 0;
   font-size: 20px;
@@ -284,7 +280,6 @@ button:hover {
   color: #634b4f;
 }
 
-/* Default styles for product description */
 .product-description {
   font-size: 16px;
   font-weight: 700;
@@ -300,21 +295,21 @@ button:hover {
     justify-content: center;
   }
   .product-card {
-    width: calc(50% - 20px); /* 50% of the container width minus the gap */
+    width: calc(50% - 20px);
   }
 }
 
 /* Media query for extra small screens */
 @media screen and (max-width: 480px) {
   .product-card {
-    width: calc(100% - 20px); /* 100% of the container width minus the gap */
+    width: calc(100% - 20px);
   }
   .chat-container {
     max-width: 350px;
   }
 }
 
-/* Extra small devices (phones, 600px and down) */
+/* Extra small devices  */
 @media only screen and (max-width: 600px) {
   .container {
     width: 100%;
@@ -323,7 +318,7 @@ button:hover {
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Small devices */
 @media only screen and (min-width: 600px) {
   .container {
     width: 100%;
@@ -332,7 +327,7 @@ button:hover {
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices  */
 @media only screen and (min-width: 768px) {
   .container {
     width: 750px;
@@ -341,7 +336,7 @@ button:hover {
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices */
 @media only screen and (min-width: 992px) {
   .container {
     width: 970px;
@@ -350,7 +345,7 @@ button:hover {
   }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* Extra large devices  */
 @media only screen and (min-width: 1200px) {
   .container {
     width: 1170px;
@@ -359,7 +354,8 @@ button:hover {
   }
 }
 
-/* Footer */
+/* !Footer */
+/* خلوا بالكم الfooter متقسم تلت حتات */
 .footer {
   background-color: #002423;
   width: 100%;
@@ -379,7 +375,6 @@ button:hover {
 }
 
 /* footer left*/
-
 .footer .footer-left {
   width: 33%;
   padding-right: 15px;
@@ -402,7 +397,6 @@ button:hover {
 }
 
 /* footer center*/
-
 .footer .footer-center {
   width: 30%;
 }
@@ -445,7 +439,6 @@ button:hover {
 }
 
 /* footer right*/
-
 .footer .footer-right {
   width: 35%;
   text-align: center;
@@ -514,8 +507,8 @@ button:hover {
   left: 0;
   width: 0%;
   height: 0%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-  z-index: 999; /* Ensure the popup is above other content */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -523,7 +516,7 @@ button:hover {
   background-color: white;
   padding: 50px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 1);
-  overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+  overflow-y: auto;
   border-radius: 20px;
   transition: all 0.3s ease;
 }

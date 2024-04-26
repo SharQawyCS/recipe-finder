@@ -86,7 +86,7 @@
   content: "-  ";
 }
 
-/* Extra small devices (phones, 600px and down) */
+/* Extra small devices  */
 @media only screen and (max-width: 600px) {
   .container {
     width: 100%;
@@ -95,7 +95,7 @@
   }
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
+/* Small devices  */
 @media only screen and (min-width: 600px) {
   .container {
     width: 100%;
@@ -104,7 +104,7 @@
   }
 }
 
-/* Medium devices (landscape tablets, 768px and up) */
+/* Medium devices*/
 @media only screen and (min-width: 768px) {
   .container {
     width: 750px;
@@ -113,7 +113,7 @@
   }
 }
 
-/* Large devices (laptops/desktops, 992px and up) */
+/* Large devices */
 @media only screen and (min-width: 992px) {
   .container {
     width: 970px;
@@ -122,7 +122,7 @@
   }
 }
 
-/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* Extra large devices */
 @media only screen and (min-width: 1200px) {
   .container {
     width: 1170px;
@@ -165,15 +165,14 @@ button {
   margin-top: 100px;
 }
 
-/* Media query for narrow screens */
 @media only screen and (max-width: 700px) {
   .row {
-    flex-direction: column; /* Stack columns vertically */
+    flex-direction: column;
   }
 
   .col {
-    width: 100%; /* Each column takes full width */
-    margin-bottom: 20px; /* Add some space between columns */
+    width: 100%;
+    margin-bottom: 20px;
   }
   .content {
     margin-left: 0;

@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Get references to form elements
+  // elements
   var ageInput = document.querySelector(".age");
   var heightInput = document.querySelector(".height");
   var weightInput = document.querySelector(".weight");
@@ -7,11 +7,11 @@ document.addEventListener("DOMContentLoaded", function () {
   var femaleRadio = document.getElementById("radio-2");
   var otherRadio = document.getElementById("radio-3");
 
-  // Check if medical data exists in local storage
+  // Check if medical data is in in local storage
   var medicalDataFromStorage = localStorage.getItem("medical-data");
   if (medicalDataFromStorage) {
     var medicalData = JSON.parse(medicalDataFromStorage);
-    // Populate fields with medical data
+    // Fill fields with old medical data
     ageInput.value = medicalData.age || "";
     heightInput.value = medicalData.height || "";
     weightInput.value = medicalData.weight || "";
@@ -25,9 +25,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Add event listener to the submit button
+  // submit button
   document.querySelector(".login_btn").addEventListener("click", function () {
-    // Get form input values
+    // Get  input values
     var age = parseInt(ageInput.value);
     var height = parseInt(heightInput.value);
     var weight = parseInt(weightInput.value);
@@ -68,10 +68,10 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "/pages/log-in/medical-info.html";
       }, 8000);
 
-      return; // Don't save "Other" in local storage
+      return; // To Don't save "Other" in local storage
     }
 
-    // Validate form inputs (example validation)
+    // Validate inputs//todo:Sharqawycs
     if (isNaN(age) || isNaN(height) || isNaN(weight)) {
       alert("Please enter valid numeric values for Age, Height, and Weight.");
       return;
@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function () {
       return;
     }
 
-    // Save form data to localStorage
+    // Save data to localStorage
     var medicalData = {
       age: age,
       height: height,
@@ -94,7 +94,6 @@ document.addEventListener("DOMContentLoaded", function () {
     };
     localStorage.setItem("medical-data", JSON.stringify(medicalData));
 
-    // Redirect to homepage (replace "homepage.html" with your actual homepage URL)
     window.location.href = "/index.html";
   });
 });

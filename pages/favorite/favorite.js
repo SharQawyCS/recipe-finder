@@ -28,7 +28,7 @@ function hideLoader() {
 let recipeUrlEx = "";
 let recipeIdEx = "";
 
-// Retrieve the favRecipes from local storage
+// bring the favRecipes from local storage
 let favRecipes = JSON.parse(localStorage.getItem("favRecipes")) || [];
 let recipesHit = []; //Array includes recipes data
 
@@ -38,7 +38,7 @@ console.log(favRecipes); //Array includes Fav Recipes IDs
 const apiKey = "88000ac38f8ecc420d6524fbf50c91cd";
 getDataFromAPIThenDisplay(favRecipes); //When page loaded, seearch for main to display some main or common recipes
 
-// Header
+// !Header
 function showSidebar() {
   const sidebar = document.querySelector(".sidebar");
   sidebar.style.display = "flex";
@@ -104,7 +104,6 @@ function generateProductCards(products) {
   });
 
   // !FOR TABLE
-
   // Create table body
   recipesHit.forEach(function (recipe, index) {
     var label = recipe.recipe.label;
@@ -133,7 +132,7 @@ function generateProductCards(products) {
   });
   document.getElementById("fav-container").appendChild(table);
 
-  //This is to delete duplicated rows
+  // !This is to delete duplicated rows
   var seenIds = {}; // Object to store unique IDs
   var rowCount = table.rows.length;
   for (var j = rowCount - 1; j > 0; j--) {
@@ -199,7 +198,7 @@ function openRecipePopUpWithData(
 ) {
   const recipePopup = document.querySelector(".recipe-pop-up");
   //This stupid block of code for: عشان يبقى شكلها حلو وهي بتفتح
-  const intervalDuration = 1; // mili seconds
+  const intervalDuration = 1; // mili seconds //Todo: Bahig
   const targetWidth = 95; // percent
   const targetHeight = 95; //  percent
   const stepWidth = targetWidth / ((0.01 * 1000) / intervalDuration);
@@ -267,7 +266,7 @@ const btn3 = document.getElementById("btn3");
 
 btn1.addEventListener("click", function () {
   console.log("Certain RecipeIdEx: " + recipeIdEx);
-  // Retrieve the current favRecipes from local storage
+  // BRing the current favRecipes from local storage
   let favRecipes = JSON.parse(localStorage.getItem("favRecipes")) || [];
 
   // Check if recipeIdEx is already in favRecipes
