@@ -1,0 +1,28 @@
+.container {
+  flex-direction: column;
+}
+
+#greeting,
+button {
+  margin: 30px 20px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1.5px solid #bbb;
+}
+td {
+  background-color: #eee;
+}
+
+th {
+  background-color: firebrick;
+  font-weight: bold;
+  color: bisque;
+}

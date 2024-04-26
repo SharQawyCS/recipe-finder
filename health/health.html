@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Health Information</title>
+    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="./health.css" />
+  </head>
+  <body>
+    <!-- !Header{ -->
+    <header>
+      <img src="/imgs/logo.png" alt="" class="logo" />
+      <nav>
+        <ul class="navlinks">
+          <li class="items"><a href="/index.html">Home</a></li>
+          <li>
+            <a href="/pages/favorite/favorite.html"
+              ><button>Favorite</button></a
+            >
+          </li>
+          <li onclick="showSidebar()">
+            <a href="#"><img src="/imgs/sidebar-icon.png" alt="Show" /></a>
+          </li>
+        </ul>
+        <ul class="sidebar">
+          <li onclick="closeSidebar()">
+            <a style="font-size: 20px" href="#">X</a>
+          </li>
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/pages/favorite/favorite.html">Favorite</a></li>
+          <li><a href="/pages/about/about.html">About us</a></li>
+          <li><a href="mailto:sharqawycs@gmail.com">Contact us</a></li>
+          <img src="/imgs/logo.png" alt="" />
+        </ul>
+      </nav>
+    </header>
+    <!-- !Header -->
+
+    <div class="container">
+      <div style="display: flex">
+        <h1 id="greeting"></h1>
+        <button id="editBtn">Edit Medical Data</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Attribute</th>
+            <th>Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Health State</td>
+            <td id="healthState"></td>
+          </tr>
+          <tr>
+            <td>Current Weight (kg)</td>
+            <td id="currentWeight"></td>
+          </tr>
+          <tr>
+            <td>Recommended Weight (kg)</td>
+            <td id="recommendedWeight"></td>
+          </tr>
+          <tr>
+            <td>Weight to Gain (kg)</td>
+            <td id="weightToGain"></td>
+          </tr>
+          <tr>
+            <td>Weight to Lose (kg)</td>
+            <td id="weightToLose"></td>
+          </tr>
+          <tr>
+            <td>BMI</td>
+            <td id="bmi"></td>
+          </tr>
+          <tr>
+            <td>Food Recommendations</td>
+            <td id="foodRecommendations"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <!-- !Footer{ -->
+    <footer class="footer">
+      <div class="footer-left col-md-4 col-sm-6">
+        <p class="about">
+          <span>About Team</span>Recipe Finder is a collaborative project
+          developed by seven enthusiastic students from the Faculty of
+          Engineering at Ain Shams University in Egypt. Our platform aims to
+          revolutionize the way people discover and explore recipes, making
+          cooking a more enjoyable and accessible experience for everyone.
+        </p>
+      </div>
+      <div class="footer-center col-md-4 col-sm-6">
+        <div
+          style="
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          ">
+          <img style="margin-right: 5px" src="/imgs/email.png" alt="" />
+          <p>
+            <a href="mailto:23P0360@eng.asu.edu.eg"> 23P0360@eng.asu.edu.eg</a>
+          </p>
+          <h3 style="margin-top: 20px; color: white">
+            Made With <span style="color: firebrick">♥</span> in Egypt 🇪🇬
+          </h3>
+        </div>
+      </div>
+      <div class="footer-right col-md-4 col-sm-6">
+        <h2>Recipe<span> Finder</span></h2>
+        <p class="menu">
+          <a href="/index.html"> Home</a> |
+          <a href="/pages/about/about.html"> About</a> |
+          <a href="mailto:23P0360@eng.asu.edu.eg"> Contact</a>
+        </p>
+        <p class="name">Recipe Finder &copy; 2024</p>
+      </div>
+    </footer>
+    <!-- !Footer -->
+    <script src="./health.js"></script>
+  </body>
+</html>

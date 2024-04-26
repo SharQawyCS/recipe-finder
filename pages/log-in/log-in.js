@@ -5,6 +5,15 @@ var passwordInput = document.querySelector(".pass");
 var submitButton = document.querySelector(".login_btn");
 let isUserDataSaved = false;
 
+// Check if user data exists in local storage
+var userDataFromStorage = localStorage.getItem("userData");
+if (userDataFromStorage) {
+  var userData = JSON.parse(userDataFromStorage);
+  emailInput.value = userData.email || "";
+  usernameInput.value = userData.username || "";
+  passwordInput.value = userData.password || "";
+}
+
 // Add event listener to the submit button
 submitButton.addEventListener("click", function (event) {
   event.preventDefault(); // Prevent the form from submitting
@@ -58,7 +67,6 @@ submitButton.addEventListener("click", function (event) {
   usernameInput.value = "";
   passwordInput.value = "";
 
-  alert("Data saved successfully!");
   isUserDataSaved = true;
 
   window.location.href = "medical-info.html";
