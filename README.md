@@ -3,6 +3,4 @@ https://asu-recipe-finder.netlify.app/
 
 
 # recipe-finder
-
-A recipe finder project for university, Faculty of Engineering Ain Shams University
-https://asu-recipe-finder.netlify.app/
+Recipe Finder is a collaborative project developed by seven enthusiastic students from the Faculty of Engineering at Ain Shams University in Egypt. Our platform aims to revolutionize the way people discover and explore recipes, making cooking a more enjoyable and accessible experience for everyone.
