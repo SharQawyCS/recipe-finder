@@ -38,13 +38,6 @@ console.log(favRecipes); //Array includes Fav Recipes IDs
 const apiKey = "88000ac38f8ecc420d6524fbf50c91cd";
 getDataFromAPIThenDisplay(favRecipes); //When page loaded, seearch for main to display some main or common recipes
 
-//Check if user logged in or not, if not, redrict him to log-in page
-const medicalDataJSON = localStorage.getItem("medical-data");
-const medicalData = JSON.parse(medicalDataJSON);
-if (!medicalData) {
-  window.location.href = "./pages/log-in/log-in.html";
-}
-
 // Header
 function showSidebar() {
   const sidebar = document.querySelector(".sidebar");
