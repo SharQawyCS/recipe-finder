@@ -1,3 +1,20 @@
+var table = document.createElement("table");
+// Create table header
+var headerRow = table.insertRow();
+var headers = [
+  "ID",
+  "Label",
+  "Fat (g)",
+  "Energy (kcal)",
+  "Sugar (g)",
+  "Carbs (g)",
+];
+headers.forEach(function (headerText) {
+  var headerCell = document.createElement("th");
+  headerCell.textContent = headerText;
+  headerRow.appendChild(headerCell);
+});
+
 //Loader functions
 const loader = document.getElementById("loader-container");
 function showLoader() {
@@ -91,6 +108,53 @@ function generateProductCards(products) {
       );
     });
   });
+
+  // !FOR TABLE
+
+  // Create table body
+  recipesHit.forEach(function (recipe, index) {
+    var label = recipe.recipe.label;
+
+    var row = table.insertRow();
+    var idCell = row.insertCell();
+    idCell.textContent = index + 1;
+
+    var labelCell = row.insertCell();
+    labelCell.textContent = label;
+
+    var fatCell = row.insertCell();
+    fatCell.textContent = recipe.recipe.totalNutrients.FAT.quantity.toFixed(2);
+
+    var energyCell = row.insertCell();
+    energyCell.textContent =
+      recipe.recipe.totalNutrients.ENERC_KCAL.quantity.toFixed(2);
+
+    var sugarCell = row.insertCell();
+    sugarCell.textContent =
+      recipe.recipe.totalNutrients.SUGAR.quantity.toFixed(2);
+
+    var carbsCell = row.insertCell();
+    carbsCell.textContent =
+      recipe.recipe.totalNutrients.CHOCDF.quantity.toFixed(2);
+  });
+  document.getElementById("fav-container").appendChild(table);
+
+  //This is to delete duplicated rows
+  var seenIds = {}; // Object to store unique IDs
+  var rowCount = table.rows.length;
+  for (var j = rowCount - 1; j > 0; j--) {
+    var row = table.rows[j];
+    var cell = row.cells[0];
+    var id = cell.innerHTML.trim();
+
+    if (seenIds[id]) {
+      // Remove duplicate row
+      table.deleteRow(j);
+    } else {
+      // Mark ID as seen
+      seenIds[id] = true;
+    }
+  }
 }
 
 // ! ! ! ! ! ! ! ! ! ! ! ! ! ! !   A.   P.   I.    ! ! ! ! ! ! ! ! ! ! ! ! ! ! !
