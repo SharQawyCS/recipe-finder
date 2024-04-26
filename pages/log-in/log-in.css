@@ -28,6 +28,7 @@ body {
   border-style: dashed;
   border-color: firebrick;
   border-radius: 20px;
+  box-shadow: 20px 16px 20px rgb(0 0 0 / 30%);
 }
 
 .card h2 {
@@ -103,10 +104,9 @@ body {
   margin-bottom: 15px;
   background: linear-gradient(90deg, firebrick, rgb(240, 93, 93));
   box-shadow: 1px 5px 9px rgba(211, 211, 211, 0.9);
-  transition: all .5s, ease .3s;
+  transition: all 0.5s, ease 0.3s;
 }
 .login_btn:hover {
-
   /*!                                                                   ! */
   cursor: pointer;
   font-size: 25px;

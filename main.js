@@ -5,13 +5,6 @@ const apiKey = "88000ac38f8ecc420d6524fbf50c91cd";
 getDataFromAPIThenDisplay("main"); //When page loaded, seearch for main to display some main or common recipes
 let recipesHit = {};
 
-//Check if user logged in or not, if not, redrict him to log-in page
-const medicalDataJSON = localStorage.getItem("medical-data");
-const medicalData = JSON.parse(medicalDataJSON);
-if (!medicalData) {
-  window.location.href = "./pages/log-in/log-in.html";
-}
-
 // Header
 function showSidebar() {
   const sidebar = document.querySelector(".sidebar");
@@ -312,27 +305,6 @@ var messages = [
   `Hello there! I'm Recipe AI, your nutrition assistant. How can I help you today?
   You can send "exit" to end the chat or "restart" to restart the chat`,
 
-  // Question
-  "What kind of meals are you interested in?",
-  // Advice related to the question
-  "When planning meals, aim for a balance of protein, carbohydrates, and healthy fats. Incorporate plenty of vegetables, whole grains, and lean protein sources like poultry, fish, tofu, or beans.",
-  // Question
-  "Do you have any specific dietary goals?",
-  // Advice related to the question
-  "If you're looking to lose weight, focus on creating a calorie deficit by choosing nutrient-dense, lower-calorie foods and controlling portion sizes. Remember to prioritize whole, unprocessed foods over highly processed options.",
-  // Question
-  "What challenges are you facing in your quest for a healthier lifestyle?",
-  // Advice related to the question
-  "If you're struggling to stay motivated, try setting realistic, achievable goals for yourself and celebrating small victories along the way. Surround yourself with supportive friends and family who can help keep you accountable and motivated.",
-  // Question
-  "What's your favorite type of cuisine?",
-  // Advice related to the question
-  "Regardless of your favorite cuisine, you can always find ways to make it healthier! Look for recipes that incorporate plenty of vegetables, lean proteins, and whole grains. Experiment with herbs and spices to add flavor without extra calories.",
-  // Question
-  "Are you currently following any specific diet plan?",
-  // Advice related to the question
-  "No matter what diet plan you're following, it's important to focus on nutrient density and overall balance. Make sure you're getting all the essential nutrients your body needs to thrive, and don't forget to enjoy treats in moderation!",
-
   "What kind of meals are you interested in?",
   // Advice related to the question
   "When planning meals, aim for a balance of protein, carbohydrates, and healthy fats. Incorporate plenty of vegetables, whole grains, and lean protein sources like poultry, fish, tofu, or beans.",
@@ -410,6 +382,7 @@ var messages = [
   "What are your strategies for staying on track with your nutrition goals while traveling?",
   // Advice related to the question
   "When traveling, plan ahead by packing healthy snacks and researching restaurants that offer nutritious options. Focus on making balanced choices when dining out, and aim to stay active by walking or exploring your destination on foot.",
+  "Chat Ended, I wish I've helped you :)",
 ];
 
 var currentMessageIndex = 0;

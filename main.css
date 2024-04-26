@@ -99,7 +99,11 @@ button:hover {
   margin: 20%;
   text-align: center;
 }
-
+@media screen and (max-width: 480px) {
+  .navlinks button {
+    display: none;
+  }
+}
 @media only screen and (max-width: 830px) {
   .navlinks .items {
     display: none;
@@ -302,6 +306,9 @@ button:hover {
 @media screen and (max-width: 480px) {
   .product-card {
     width: calc(100% - 20px); /* 100% of the container width minus the gap */
+  }
+  .chat-container {
+    max-width: 350px;
   }
 }
 
@@ -677,6 +684,9 @@ button:hover {
   display: flex;
   align-items: center;
   margin-top: 20px;
+  position: absolute;
+  bottom: 10px;
+  width: 94%;
 }
 
 .message-input input[type="text"] {
@@ -705,4 +715,12 @@ button:hover {
   position: fixed;
   bottom: 10px;
   left: 10px;
+}
+@media screen and (max-width: 480px) {
+  .chat-bot-container {
+    max-width: 270px;
+  }
+  .chat-container {
+    padding: 0;
+  }
 }
