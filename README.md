@@ -21,4 +21,4 @@ Our journey began with a shared passion for food and technology, fueled by a des
 
 # Contact Us
 Have questions, suggestions, or feedback? We'd love to hear from you! Feel free to reach out to us via email or connect with us on social media. Your input is invaluable as we continue to improve and expand Recipe Finder to better serve you.
-sharqawycs@gmail.com
+###### sharqawycs@gmail.com
