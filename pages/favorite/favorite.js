@@ -1,4 +1,5 @@
 var table = document.createElement("table");
+table.style.marginTop = "40px";
 // Create table header
 var headerRow = table.insertRow();
 var headers = [
