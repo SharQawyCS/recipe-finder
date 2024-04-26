@@ -304,8 +304,9 @@ btn3.addEventListener("click", function () {
 function getDataFromAPIThenDisplay(query) {
   if (query.length === 0) {
     hideLoader();
+    document.body.style.overflow = "hidden";
     document.getElementById("fav-container").innerHTML += `
-    <h2 style="color: firebrick;">Your favorite list is empty, try to add some recipes first</h2>
+    <h2 style="color: firebrick; margin-bottom: 80vh;">Your favorite list is empty, try to add some recipes first</h2>
     `;
   }
   query.forEach((favRecipeId) => {
