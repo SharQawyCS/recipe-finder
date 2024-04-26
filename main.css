@@ -561,3 +561,148 @@ button:hover {
     transform: rotate(90deg);
   }
 }
+
+/* !Chatbot */
+.chat-bot-container {
+  background-color: #f5f5f5;
+  padding: 15px;
+  z-index: 1001;
+  border: 3px dashed firebrick;
+  border-radius: 20px;
+  display: none;
+  position: fixed;
+  bottom: 50px;
+  left: 70px;
+  width: 400px;
+  height: 500px;
+  overflow: hidden;
+}
+
+.header {
+  background-color: #002423;
+  color: white;
+  padding: 10px;
+  display: flex;
+  margin: -15px;
+  align-items: center;
+}
+
+.header-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.header-icon {
+  font-size: 24px;
+  margin-right: 10px;
+}
+
+.active-icon {
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.chat-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: bisque;
+}
+
+.chat-container {
+  max-width: 400px;
+  max-height: 350px;
+  margin: 20px auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 8px;
+  border-radius: 10px;
+  max-width: 70%;
+  display: flex;
+  align-items: center;
+}
+
+.outgoing {
+  background-color: #dcf8c6;
+  align-self: flex-end;
+  justify-content: flex-end;
+}
+
+.incoming {
+  background-color: #e4e4e4;
+  justify-content: flex-start;
+}
+
+.message-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.message-content {
+  word-wrap: break-word;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #666;
+  margin-left: auto;
+}
+
+.message-input {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.message-input input[type="text"] {
+  flex: 1;
+  padding: 13px;
+  border-radius: 20px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.message-input button {
+  background-color: #002423;
+  color: white;
+  border: none;
+  padding: 10px 0px !important;
+  margin-left: 5px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.message-input button:hover {
+  background-color: #089792;
+}
+
+.show-bot-btn {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}

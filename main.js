@@ -293,3 +293,201 @@ function logout() {
     window.location.href = "/pages/log-in/log-in.html"; //Open login pagee
   }, 5000);
 }
+
+// !Chatbot
+const toggleBotBtn = document.getElementById("show-bot-btn");
+const botContainer = document.getElementById("chat-bot-container");
+
+toggleBotBtn.addEventListener("click", () => {
+  if (botContainer.style.display == "block") {
+    botContainer.style.display = "none";
+    document.body.style.overflow = "scroll"; // Prevetn scrolling of the main page
+  } else {
+    botContainer.style.display = "block";
+    document.body.style.overflow = "hidden"; // Prevetn scrolling of the main page
+  }
+});
+
+var messages = [
+  `Hello there! I'm Recipe AI, your nutrition assistant. How can I help you today?
+  You can send "exit" to end the chat or "restart" to restart the chat`,
+
+  // Question
+  "What kind of meals are you interested in?",
+  // Advice related to the question
+  "When planning meals, aim for a balance of protein, carbohydrates, and healthy fats. Incorporate plenty of vegetables, whole grains, and lean protein sources like poultry, fish, tofu, or beans.",
+  // Question
+  "Do you have any specific dietary goals?",
+  // Advice related to the question
+  "If you're looking to lose weight, focus on creating a calorie deficit by choosing nutrient-dense, lower-calorie foods and controlling portion sizes. Remember to prioritize whole, unprocessed foods over highly processed options.",
+  // Question
+  "What challenges are you facing in your quest for a healthier lifestyle?",
+  // Advice related to the question
+  "If you're struggling to stay motivated, try setting realistic, achievable goals for yourself and celebrating small victories along the way. Surround yourself with supportive friends and family who can help keep you accountable and motivated.",
+  // Question
+  "What's your favorite type of cuisine?",
+  // Advice related to the question
+  "Regardless of your favorite cuisine, you can always find ways to make it healthier! Look for recipes that incorporate plenty of vegetables, lean proteins, and whole grains. Experiment with herbs and spices to add flavor without extra calories.",
+  // Question
+  "Are you currently following any specific diet plan?",
+  // Advice related to the question
+  "No matter what diet plan you're following, it's important to focus on nutrient density and overall balance. Make sure you're getting all the essential nutrients your body needs to thrive, and don't forget to enjoy treats in moderation!",
+
+  "What kind of meals are you interested in?",
+  // Advice related to the question
+  "When planning meals, aim for a balance of protein, carbohydrates, and healthy fats. Incorporate plenty of vegetables, whole grains, and lean protein sources like poultry, fish, tofu, or beans.",
+  // Question
+  "Do you have any specific dietary goals?",
+  // Advice related to the question
+  "If you're looking to lose weight, focus on creating a calorie deficit by choosing nutrient-dense, lower-calorie foods and controlling portion sizes. Remember to prioritize whole, unprocessed foods over highly processed options.",
+  // Question
+  "What challenges are you facing in your quest for a healthier lifestyle?",
+  // Advice related to the question
+  "If you're struggling to stay motivated, try setting realistic, achievable goals for yourself and celebrating small victories along the way. Surround yourself with supportive friends and family who can help keep you accountable and motivated.",
+  // Question
+  "What's your favorite type of cuisine?",
+  // Advice related to the question
+  "Regardless of your favorite cuisine, you can always find ways to make it healthier! Look for recipes that incorporate plenty of vegetables, lean proteins, and whole grains. Experiment with herbs and spices to add flavor without extra calories.",
+  // Question
+  "Are you currently following any specific diet plan?",
+  // Advice related to the question
+  "No matter what diet plan you're following, it's important to focus on nutrient density and overall balance. Make sure you're getting all the essential nutrients your body needs to thrive, and don't forget to enjoy treats in moderation!",
+  "What are your favorite healthy snacks?",
+  // Advice related to the question
+  "When choosing snacks, opt for whole foods like fruits, vegetables, nuts, and yogurt. These options are nutrient-dense and can help keep you feeling satisfied between meals without loading up on empty calories.",
+  // Question
+  "Do you struggle with portion control?",
+  // Advice related to the question
+  "If portion control is a challenge for you, try using smaller plates and bowls to help control portion sizes. Also, pay attention to your hunger and fullness cues, and try to eat slowly to give your body time to register when you're satisfied.",
+  // Question
+  "How do you deal with cravings for unhealthy foods?",
+  // Advice related to the question
+  "When cravings strike, try distracting yourself with a healthy activity like going for a walk, drinking a glass of water, or chewing sugar-free gum. You can also try swapping unhealthy snacks for healthier alternatives to satisfy your cravings without derailing your diet.",
+  // Question
+  "Are you getting enough fruits and vegetables in your diet?",
+  // Advice related to the question
+  "Fruits and vegetables are packed with essential vitamins, minerals, and fiber, so it's important to include plenty of them in your diet. Aim for at least 5 servings of fruits and vegetables per day, and try to include a variety of colors to ensure you're getting a wide range of nutrients.",
+  // Question
+  "How do you handle eating out at restaurants while trying to eat healthy?",
+  // Advice related to the question
+  "When dining out, look for restaurants that offer healthier options like grilled or steamed dishes, salads, and vegetable-based sides. You can also ask for dressings and sauces on the side, and consider sharing entrees or ordering half portions to help control portion sizes.",
+  // Question
+  "What's your go-to healthy breakfast?",
+  // Advice related to the question
+  "Starting your day with a nutritious breakfast is important for fueling your body and jumpstarting your metabolism. Try to include a mix of protein, fiber, and healthy fats in your breakfast, such as oatmeal topped with fruit and nuts, Greek yogurt with granola and berries, or scrambled eggs with vegetables.",
+  "How do you stay motivated to eat healthy?",
+  // Advice related to the question
+  "Staying motivated can be challenging, but setting clear, achievable goals can help keep you on track. Surround yourself with positive influences, like friends who share your healthy lifestyle goals, and celebrate your successes along the way.",
+  // Question
+  "What's your favorite way to stay active?",
+  // Advice related to the question
+  "Finding activities you enjoy is key to sticking with an exercise routine. Whether it's walking, dancing, swimming, or practicing yoga, choose activities that you look forward to and that fit into your lifestyle.",
+  // Question
+  "Do you have any strategies for staying hydrated throughout the day?",
+  // Advice related to the question
+  "If you struggle to drink enough water, try carrying a reusable water bottle with you wherever you go and setting reminders on your phone to drink water throughout the day. You can also infuse your water with fruits or herbs for added flavor.",
+  // Question
+  "How do you handle social situations where unhealthy food choices are prevalent?",
+  // Advice related to the question
+  "In social situations, focus on enjoying the company of friends and family rather than fixating on food. If you're attending a gathering where unhealthy options are available, try eating a healthy snack beforehand to curb your appetite and make mindful choices when it comes to indulging.",
+  // Question
+  "What's your approach to meal planning and preparation?",
+  // Advice related to the question
+  "Meal planning can help you save time and money while ensuring you have nutritious meals on hand throughout the week. Set aside some time each week to plan your meals, make a grocery list, and prep ingredients in advance to streamline the cooking process.",
+  // Question
+  "How do you handle cravings for sugary or processed foods?",
+  // Advice related to the question
+  "When cravings strike, try satisfying your sweet tooth with naturally sweet foods like fruit or a small piece of dark chocolate. You can also try distracting yourself with a healthy activity or reaching for a satisfying protein-rich snack like nuts or Greek yogurt.",
+  // Question
+  "What are your favorite ways to incorporate more vegetables into your meals?",
+  // Advice related to the question
+  "Get creative with your vegetable intake by experimenting with different cooking methods and flavor combinations. Try roasting vegetables with herbs and spices, adding them to soups and stews, or incorporating them into salads, stir-fries, and grain bowls.",
+  // Question
+  "How do you handle food cravings late at night?",
+  // Advice related to the question
+  "Late-night cravings can be tough to resist, but it's important to listen to your body's hunger cues and make mindful choices. If you find yourself craving snacks before bed, opt for light, nutrient-dense options like a small piece of fruit, a handful of nuts, or a cup of herbal tea.",
+  // Question
+  "What are your strategies for staying on track with your nutrition goals while traveling?",
+  // Advice related to the question
+  "When traveling, plan ahead by packing healthy snacks and researching restaurants that offer nutritious options. Focus on making balanced choices when dining out, and aim to stay active by walking or exploring your destination on foot.",
+];
+
+var currentMessageIndex = 0;
+
+function sendMessage() {
+  var input = document.getElementById("messageInput");
+  var message = input.value;
+  if (message.trim() === "") {
+    return; // Boş mesaj göndermeyi engelle
+  } else if (message.trim() == "exit") {
+    input.value = "";
+    exitChatbot();
+    addIncomingMessage("Chat ended");
+    return;
+  } else if (message.trim() == "restart") {
+    input.value = "";
+    restartChatbot();
+    return;
+  }
+
+  addOutgoingMessage(message);
+
+  input.value = ""; // Mesaj girdisini temizle
+  setTimeout(sendAutoReply, 1000); // Otomatik cevap için bekle
+}
+
+function sendAutoReply() {
+  if (currentMessageIndex < messages.length) {
+    addIncomingMessage(messages[currentMessageIndex]);
+    currentMessageIndex++;
+  }
+}
+
+function addOutgoingMessage(message) {
+  var chatContainer = document.getElementById("chatContainer");
+  var outgoingMessage = document.createElement("div");
+
+  outgoingMessage.classList.add("message", "outgoing");
+  outgoingMessage.innerHTML = `
+
+    <img style="width:25px; height:25px;" src="/imgs/profile-user-2.png" alt="Avatar" class="message-avatar">
+    <div class="message-content">${message}</div>
+    <div class="message-time">${getCurrentTime()}</div>
+  `;
+  chatContainer.appendChild(outgoingMessage);
+}
+
+function addIncomingMessage(message) {
+  var chatContainer = document.getElementById("chatContainer");
+  var incomingMessage = document.createElement("div");
+
+  incomingMessage.classList.add("message", "incoming");
+  incomingMessage.innerHTML = `
+
+    <img style="width:25px; height:25px;" src="/imgs/chatbot.png" alt="Avatar" class="message-avatar">
+    <div class="message-content">${message}</div>
+    <div class="message-time">${getCurrentTime()}</div>
+  `;
+  chatContainer.appendChild(incomingMessage);
+}
+
+function getCurrentTime() {
+  var now = new Date();
+  var hours = now.getHours();
+  var minutes = now.getMinutes();
+
+  return `${hours}:${minutes < 10 ? "0" : ""}${minutes}`;
+}
+
+sendAutoReply();
+
+//Function to restart the bot
+function exitChatbot() {
+  var chatContainer = document.getElementById("chatContainer");
+  chatContainer.innerHTML = ""; // Clear the chat container
+  currentMessageIndex = 0; // Reset the message index
+}
+function restartChatbot() {
+  exitChatbot();
+  sendAutoReply(); // Start the conversation from the beginning
+}
