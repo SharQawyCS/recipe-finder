@@ -236,7 +236,9 @@ button:hover {
   font-weight: 900;
 }
 /* Default styles for product card */
+
 .product-card {
+  min-width: 280px;
   width: calc(33% - 20px); /* 25% of the container width minus the gap */
   margin: 10px;
   background-color: #fff;
