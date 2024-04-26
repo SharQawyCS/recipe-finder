@@ -67,7 +67,6 @@ document.addEventListener("DOMContentLoaded", function () {
       setTimeout(() => {
         window.location.href = "/pages/log-in/medical-info.html";
       }, 8000);
-      console.log("rkkffjf");
 
       return; // Don't save "Other" in local storage
     }
@@ -75,6 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Validate form inputs (example validation)
     if (isNaN(age) || isNaN(height) || isNaN(weight)) {
       alert("Please enter valid numeric values for Age, Height, and Weight.");
+      return;
+    }
+    if (weight < 10 || weight > 180) {
+      alert("Please enter a valid weight");
+      return;
+    }
+    if (height < 50 || height > 250) {
+      alert("Please enter a valid height");
       return;
     }
 

@@ -88,6 +88,10 @@ button:hover {
   height: 120px;
 }
 
+.user-icon:hover {
+  content: url("/imgs/profile-user-2.png");
+}
+
 .index-page h2 {
   color: firebrick;
   font-size: 2em;

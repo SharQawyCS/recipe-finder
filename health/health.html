@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Health Information</title>
     <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/pages/recipe/recipe.css" />
     <link rel="stylesheet" href="./health.css" />
   </head>
   <body>
@@ -36,7 +37,6 @@
       </nav>
     </header>
     <!-- !Header -->
-
     <div class="container">
       <div style="display: flex">
         <h1 id="greeting"></h1>
@@ -80,7 +80,54 @@
           </tr>
         </tbody>
       </table>
+
+      <!-- Recipe boxes container -->
+      <h2 id="usfel-h2" style="margin-top: 30px; color: #222831">
+        Some useful recipes for
+      </h2>
+      <div style="margin-top: 10px" id="product-container"></div>
     </div>
+
+    <!-- !RECIPE -->
+    <div class="recipe-pop-up">
+      <div class="row">
+        <div class="col">
+          <div class="image">
+            <img
+              id="recipeImage"
+              src="https://via.placeholder.com/200x150"
+              alt="Recipe Image" />
+          </div>
+        </div>
+        <div class="col">
+          <div class="content">
+            <div class="small-title" id="smallTitle">Small Title</div>
+            <div class="big-title" id="bigTitle">Big Title</div>
+            <p class="paragraph" id="paragraph">One line paragraph</p>
+            <div class="buttons">
+              <button class="btn" id="btn1">Favorite</button>
+              <button class="btn" id="btn2">How to</button>
+              <button class="btn" id="btn3">Back</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <div class="ingredients-outline">
+            <h2>Ingredients</h2>
+            <ul id="ingredientsList">
+              <li>Ingredient 1</li>
+              <li>Ingredient 2</li>
+              <li>Ingredient 3</li>
+              <!-- Add more ingredients as needed -->
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- !RECIPE -->
+
     <!-- !Footer{ -->
     <footer class="footer">
       <div class="footer-left col-md-4 col-sm-6">
