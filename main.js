@@ -27,6 +27,18 @@ let inputVal = document.querySelector(".input-box input");
 const button = document.querySelector(".button");
 
 button.addEventListener("click", () => {
+  //Check if user logged in or not, if not, redrict him to log-in page
+  const medicalDataJSON = localStorage.getItem("medical-data");
+  const medicalData = JSON.parse(medicalDataJSON);
+  if (!medicalData) {
+    document.querySelector(".input-box input").value =
+      "  You need to register you data first, redirecting to register data page..... ";
+    setTimeout(function () {
+      window.location.href = "/pages/log-in/log-in.html"; //Open login pagee
+    }, 3000);
+    return;
+  }
+
   //To ensxure that user enter anything
   if (inputVal.value) {
     showLoader();

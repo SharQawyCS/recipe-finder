@@ -9,7 +9,7 @@ body {
   cursor: url("./imgs/carrot.png"), auto;
   background-image: url(/imgs/hp_img.jpg);
 }
-/* Header */
+/* !Header */
 .logo {
   position: absolute;
   left: 20px;
@@ -498,7 +498,9 @@ button:hover {
     margin-left: 0;
   }
 }
+/* !Footer */
 
+/* !Recipe pop-up */
 .recipe-pop-up {
   display: none;
   border: firebrick dashed 4px;
@@ -520,6 +522,7 @@ button:hover {
   border-radius: 20px;
   transition: all 0.3s ease;
 }
+/* !Recipe pop-up */
 
 /*! LOADER */
 .loader-container {
@@ -719,3 +722,4 @@ button:hover {
     padding: 0;
   }
 }
+/* !Chatbot */

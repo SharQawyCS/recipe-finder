@@ -1,69 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipe-Finder|footer</title>
-    <link rel="stylesheet" href="footer.css" />
-  </head>
-  <body>
-    <div class="footer">
-      <div>
-        <h4>Company</h4>
-        <ul>
-          <li>
-            <a href="http://127.0.0.1:5500/homepage.html">home page</a>
-          </li>
-          <li>
-            <a href="http://127.0.0.1:5500/pages/about/about.html">about us</a>
-          </li>
-          <li>
-            <a href="#">our services</a>
-          </li>
-          <li>
-            <a href="#">privacy policy</a>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h4>Get help</h4>
-        <ul>
-          <li>
-            <a href="#">FAQs</a>
-          </li>
-          <li>
-            <a href="#">Help & support</a>
-          </li>
-        </ul>
-      </div>
-
-      <div class="follow">
-        <h4>Follow Us</h4>
-        <ul>
-          <a href="https://www.facebook.com/" target="_blank"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
-          <a href="https://twitter.com/x" target="_blank"
-            ><i class="fab fa-twitter"></i
-          ></a>
-          <a href="https://www.instagram.com/" target="_blank"
-            ><i class="fab fa-instagram"></i
-          ></a>
-          <a href="https://www.youtube.com/" target="_blank"
-            ><i class="fab fa-youtube"></i
-          ></a>
-        </ul>
-      </div>
-
-      <!-- to make space in the right of footer -->
-      <div>
-        <a href="#"></a>
-      </div>
-    </div>
-
-    <p id="right">
-      <spam>Copyright &copy;2024: Designed by <b>Fighters</b></spam>
+<!-- !Footer{ -->
+<footer class="footer">
+  <div class="footer-left col-md-4 col-sm-6">
+    <p class="about">
+      <span>About Team</span>Recipe Finder is a collaborative project developed
+      by seven enthusiastic students from the Faculty of Engineering at Ain
+      Shams University in Egypt. Our platform aims to revolutionize the way
+      people discover and explore recipes, making cooking a more enjoyable and
+      accessible experience for everyone.
     </p>
-  </body>
-</html>
+  </div>
+  <div class="footer-center col-md-4 col-sm-6">
+    <div
+      style="
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      ">
+      <img style="margin-right: 5px" src="/imgs/email.png" alt="" />
+      <p>
+        <a href="mailto:23P0360@eng.asu.edu.eg"> 23P0360@eng.asu.edu.eg</a>
+      </p>
+      <h3 style="margin-top: 20px; color: white">
+        Made With <span style="color: firebrick">♥</span> in Egypt 🇪🇬
+      </h3>
+    </div>
+  </div>
+  <div class="footer-right col-md-4 col-sm-6">
+    <h2>Recipe<span> Finder</span></h2>
+    <p class="menu">
+      <a href="./index.html"> Home</a> |
+      <a href="./pages/about/about.html"> About</a> |
+      <a href="mailto:23P0360@eng.asu.edu.eg"> Contact</a> |
+      <a href="#" onclick="logout()">Log-out</a>
+    </p>
+    <p class="name">Recipe Finder &copy; 2024</p>
+  </div>
+</footer>
+<!-- !Footer -->
