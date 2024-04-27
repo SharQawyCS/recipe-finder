@@ -36,6 +36,7 @@ button.addEventListener("click", () => {
 
 let buttons = document.querySelectorAll(".health-lables button");
 
+//tags !!
 buttons.forEach((btn) => {
   btn.addEventListener("click", () => {
     showLoader();
@@ -229,6 +230,22 @@ const btn2 = document.getElementById("btn2");
 const btn3 = document.getElementById("btn3");
 
 btn1.addEventListener("click", function () {
+  //Check if user logged in or not, if not, redrict him to log-in page
+  const medicalDataJSON = localStorage.getItem("medical-data");
+  const medicalData = JSON.parse(medicalDataJSON);
+  if (!medicalData) {
+    document.querySelector(".container").innerHTML = `
+  <div style="margin-top: -50vh !important; color: #222831;">
+  <h1>Your need to register your data first</h1>
+</br>
+  <h2>Redirecting to register data page in 5 seconds.....</h2>
+  </div>
+  
+  `;
+    setTimeout(function () {
+      window.location.href = "/pages/log-in/log-in.html"; //Open login pagee
+    }, 5000);
+  }
   console.log("Certain RecipeIdEx: " + recipeIdEx);
   // bring the current favRecipes from local storage
   let favRecipes = JSON.parse(localStorage.getItem("favRecipes")) || [];

@@ -1,3 +1,20 @@
+//Check if user logged in or not, if not, redrict him to log-in page
+const medicalDataJSON = localStorage.getItem("medical-data");
+const medicalData = JSON.parse(medicalDataJSON);
+if (!medicalData) {
+  document.body.style.overflow = "hidden";
+  document.getElementById("fav-container").innerHTML += `
+    <div style="color: firebrick; margin-bottom: 80vh;">
+      <h1>Your need to register your data first</h1>
+      </br>
+      <h2>Redirecting to register data page in 5 seconds.....</h2>
+      </div>
+    `;
+  setTimeout(function () {
+    window.location.href = "/pages/log-in/log-in.html"; //Open login pagee
+  }, 5000);
+}
+
 var table = document.createElement("table");
 table.style.marginTop = "40px";
 // Create table header
@@ -295,6 +312,7 @@ btn3.addEventListener("click", function () {
 });
 
 function getDataFromAPIThenDisplay(query) {
+  document.body.style.overflow = "hidden"; // Prevetn scrolling of the main page
   if (query.length === 0) {
     hideLoader();
     document.body.style.overflow = "hidden";
@@ -309,7 +327,7 @@ function getDataFromAPIThenDisplay(query) {
       .then((response) => {
         if (!response.ok) {
           document.getElementById("fav-container").innerHTML = `
-  <h1>Your data was deleted, you need to sign-in again </h1>`;
+  <h1>Check Internet Connection PLZ</h1>`;
           throw new Error("Network response was not ok");
         }
         return response.json();
@@ -324,7 +342,10 @@ function getDataFromAPIThenDisplay(query) {
         console.error("There was a problem with the fetch operation:", error);
       });
 
-    setTimeout(hideLoader, 1500);
+    setTimeout(() => {
+      hideLoader();
+      document.body.style.overflow = "scroll"; // scrolling of the main page works again
+    }, 1500);
   });
 }
 generateProductCards(recipesHit);
